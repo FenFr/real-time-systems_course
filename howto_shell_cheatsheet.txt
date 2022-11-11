@@ -1,0 +1,80 @@
+
+Everything in <> is variable and depends on your system / your intention
+
+The prompt is always shown in your shell: 
+<user>@<host>:<path> $
+
+<user> is the user that is running the shell (important if you work with multiple user accounts e.g. root and user)
+<host> is the hostname of the PC the shell is running on (important if you connect to remote machines)
+<path> is the path where you are currently located at
+
+As soon as the prompt is shown you can enter any command.
+The 'TAB' key autocompletes commands and paths as soon as there is no ambiguity.
+If multiple possibilities exist 2x'TAB' will diplay them.
+
+################################################################################
+Commands you should know:
+################################################################################
+
+man <command>				show manual for the command <command>
+							exit with 'q'
+
+ls <options>				list directory (mind the space between command and options, this is always the case)
+ls							<options> is empty		just list the directory
+ls -l						<options> is '-l'		list directory with more details (permissions owner group size date time filename)
+ls -a						<options> is '-a'		list directory including hidden files
+ls -a -l					<options> are '-a -l'	list directory (also hidden files) with more details (mind the space again)
+
+cd	<path>					change directory (relative to your current directory)
+cd /<path>					change directory (absolute [from the file system root])
+
+mkdir <folder>				create folder
+mkdir -p <path>				create all folders to this path
+
+rm <file>					remove the file
+rm -r <folder>				remove folder (recursive)
+
+chmod <permissions> <file>	change file permissions (read, write, execute) for owner, group and others
+							Permissions are typically shown this way: rwxrwxrwx
+							first entry (rwx) is for the owner of the file/folder
+							second entry (rwx) is for the group this file/folder belongs to
+							third entry (rwx) is for all others
+							missing permissions are shown with a dash '-'
+							rwxr-xr-- means the owner can do anything; the group can read and execute; all others can only read
+
+chmod +x <file>				make file executable for everyone (+w -> writable; +r -> readable)
+chmod -x <file				remove the right to execute for everyone (-w -> writable; -r -> readable)
+chmod u+x <file>			make file executable for the owner (u=owner, g=group, o=others a=all)
+chmod u-x <file				remove the right to execute for the owner
+
+cat	<file>					read file contents (prints the whole file to the terminal)
+less <file>					read file contents (page by page) [exit with 'q']
+
+echo <text>					print <text> to the terminal
+echo <text>	> <file>		print <text> to the file <file> (note the '>' before <file> )
+							using the operator '>' the output of every program can be written to a file
+							what would 'ls -l > out' do?
+
+nano <file>                 edit a file with the "nano" CLI text editor, creates the file if not existing
+
+./<prog>              		executes a program in the current directory
+/.../<prog>           		executes a program in an absolute path (from root)
+
+/.../<prog> &				executes a program in background
+/.../<prog> &>/dev/null		executes a program silently with stdout and stderr redirected to /dev/null
+/.../<prog> &>/dev/null &   executes a program silently and in background
+
+chrt -f <prio> <prog>    	starts <prog> directly with RT priority <prio>, sets policy SCHED_FIFO
+chrt -r <prio> <prog>    	starts <prog> directly with RT priority <prio>, sets policy SCHED_RR
+chrt -f -p <prio> <id>		changes RT priority of running process/thread ID <id> to <prio>, sets policy SCHED_FIFO
+chrt -r -p <prio> <id>		changes RT priority of running process/thread ID <id> to <prio>, sets policy SCHED_RR
+
+sudo <cmd>                  executes <cmd> as root user
+
+################################################################################
+Paths you need to know:
+################################################################################
+
+/ 							the root of your file system tree
+/home/<user>/				the home directory of the currently logged in user <user>. Shorthand: '~'
+/sys/class/gpio/			access to the gpio pins (if available) - see sysfs
