@@ -1,10 +1,11 @@
 //////////////////////////////////////////////////////////////////////////////
-// Course:	  		Real Time Systems
+// Course:	  			Real Time Systems
 // Lecturer:      		Dr.-Ing. Frank Golatowski
-// Exercise instructor: 	M.Sc. Michael Rethfeldt
+// Exercise instructor: M.Sc. Michael Rethfeldt
+// Co-Author:			Fenja Freitag
 // Exercise:      		4
 // Task:          		5
-// Name:          		aufgabe5_consumer.c
+// Name:          		04_Aufgabe_5.c
 // Description:   		Exchange of data between independent processes using shared memory
 //////////////////////////////////////////////////////////////////////////////
 #include <stdio.h>

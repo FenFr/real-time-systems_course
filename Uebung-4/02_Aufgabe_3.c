@@ -1,12 +1,15 @@
 //////////////////////////////////////////////////////////////////////////////
-// Course:	  		Real Time Systems
+// Course:	  			Real Time Systems
 // Lecturer:      		Dr.-Ing. Frank Golatowski
-// Exercise instructor: 	M.Sc. Michael Rethfeldt
+// Exercise instructor: M.Sc. Michael Rethfeldt
+// Co-Author:			Fenja Freitag
 // Exercise:      		4
 // Task:          		3
-// Name:          		aufgabe3.c
+// Name:          		02_Aufgabe_3.c
 // Description:   		Exchange of data between processes using shared memory
 //////////////////////////////////////////////////////////////////////////////
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>

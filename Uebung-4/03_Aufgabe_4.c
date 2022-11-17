@@ -1,10 +1,11 @@
 //////////////////////////////////////////////////////////////////////////////
-// Course:	  		Real Time Systems
+// Course:	  			Real Time Systems
 // Lecturer:      		Dr.-Ing. Frank Golatowski
-// Exercise instructor: 	M.Sc. Michael Rethfeldt
+// Exercise instructor: M.Sc. Michael Rethfeldt
+// Co-Author:			Fenja Freitag
 // Exercise:      		4
 // Task:          		4
-// Name:          		aufgabe4.c
+// Name:          		03_Aufgabe_4.c
 // Description:   		Exchange of data between processes
 //////////////////////////////////////////////////////////////////////////////
 #include <stdio.h>
