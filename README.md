@@ -14,7 +14,9 @@
 
 #### fork ()
 - creates new process - the child process
-- 
+- child process starts right after the fork() function was called
+- a child process can call another chid process
+- when multiple child processes are called it is uncertain which one will be executed first
 
 ```c
 #include <sys/types.h>
