@@ -4,10 +4,12 @@
 // Exercise instructor: M.Sc. Michael Rethfeldt
 // Exercise:      		3
 // Task:          		4
-// Name:          		aufgabe4.c
+// Name:          		03_Aufgabe_4.c
 // Description:   		Reading of a file in a son process and passing
 //						data to another son process via a pipe
 //////////////////////////////////////////////////////////////////////////////
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -15,6 +17,8 @@
 #include <ctype.h>
 
 //////////////////////////////////////////////////////////////////////////////
+
+
 void hex_print(FILE *dz, char *s)
 {	int fd[2],status;
 	if ( pipe(fd) != 0)
@@ -76,6 +80,8 @@ void hex_print(FILE *dz, char *s)
 }
 
 //////////////////////////////////////////////////////////////////////////////
+
+
 int main(int argc, char *argv[] )
 {
 	FILE *dz;

@@ -4,12 +4,15 @@
 // Exercise instructor: M.Sc. Michael Rethfeldt
 // Exercise:      		1
 // Task:          		1
-// Name:          		aufgabe1.c
+// Name:          		01_Aufgabe_1.c
 // Description:   		Hello World output
 //////////////////////////////////////////////////////////////////////////////
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+
 
 int main(void)
 {

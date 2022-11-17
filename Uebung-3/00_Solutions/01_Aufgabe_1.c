@@ -4,15 +4,18 @@
 // Exercise instructor: M.Sc. Michael Rethfeldt
 // Exercise:      		3
 // Task:          		1
-// Name:          		aufgabe1.c
+// Name:          		01_Aufgabe_1.c
 // Description:   		Reading of a file in a father process and
 //						passing the data to a son process via a pipe
 //////////////////////////////////////////////////////////////////////////////
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <sys/wait.h>
 #include <ctype.h>
+
 
 //////////////////////////////////////////////////////////////////////////////
 void hex_print(FILE *dz, char *s)
@@ -67,6 +70,8 @@ void hex_print(FILE *dz, char *s)
 }
 
 //////////////////////////////////////////////////////////////////////////////
+
+
 int main(int argc, char *argv[] )
 {	FILE *dz;
 	int    i;

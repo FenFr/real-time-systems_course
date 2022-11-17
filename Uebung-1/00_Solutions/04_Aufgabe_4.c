@@ -4,13 +4,16 @@
 // Exercise instructor: M.Sc. Michael Rethfeldt
 // Exercise:      		1
 // Task:          		4
-// Name:          		aufgabe4.c
+// Name:          		04_Aufgabe_4.c
 // Description:   		Execution of external programs
 //////////////////////////////////////////////////////////////////////////////
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <sys/wait.h>
+
 
 int main(int argc, char *argv[])
 {

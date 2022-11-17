@@ -4,10 +4,12 @@
 // Exercise instructor: M.Sc. Michael Rethfeldt
 // Exercise:      		3
 // Task:          		3
-// Name:          		aufgabe3.c
+// Name:          		02_Aufgabe_3.c
 // Description:   		Demonstration of a signal handler.
 //						Example for catching SIGINT (Ctrl+C)
 //////////////////////////////////////////////////////////////////////////////
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -19,6 +21,8 @@ void father_signal_handler(int);
 void son_signal_handler(int);
 
 //////////////////////////////////////////////////////////////////////////////
+
+
 int main(int argc, char *argv[] )
 {	
 	pid_t	pid;

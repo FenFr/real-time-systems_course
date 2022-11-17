@@ -4,9 +4,11 @@
 // Exercise instructor: M.Sc. Michael Rethfeldt
 // Exercise:      		2
 // Task:          		3
-// Name:          		aufgabe3.c
+// Name:          		01_Aufgabe_3.c
 // Description:   		Creating an arbitrary number of processes
 //////////////////////////////////////////////////////////////////////////////
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -20,6 +22,7 @@
 
 #define DEFAULT_PROCESSCOUNT 20
 
+
 //////////////////////////////////////////////////////////////////////////////
 void printerrorexit(char *str, int errornumber)
 {	fprintf(stderr, "%s %d=%s\n", str, errornumber, strerror(errornumber));
@@ -27,6 +30,8 @@ void printerrorexit(char *str, int errornumber)
 }
 
 //////////////////////////////////////////////////////////////////////////////
+
+
 int main(int argc, char *argv[])
 {
 	int i, maxprocesses, retvalue, sleeptime, createdprocesses=0;

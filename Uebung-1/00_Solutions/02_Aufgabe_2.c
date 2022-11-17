@@ -4,13 +4,16 @@
 // Exercise instructor: M.Sc. Michael Rethfeldt
 // Exercise:      		1
 // Task:          		2
-// Name:          		aufgabe2.c
+// Name:          		02_Aufgabe_2.c
 // Description:   		Creation of processes
 //////////////////////////////////////////////////////////////////////////////
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <sys/wait.h>
+
 
 int main(void)
 {
