@@ -5,7 +5,7 @@
 // Author:  			Fenja Freitag
 // Exercise:      		3
 // Task:          		3
-// Name:          		02_Aufgabe_1.c
+// Name:          		03_Aufgabe_3.c
 // Description:   		Introduction to pipes
 //////////////////////////////////////////////////////////////////////////////
 
@@ -25,13 +25,13 @@ int main(int argc, char**argv) {
 
     // birth child
     if( (pid_val = fork()) == -1 ) {
-        printf("Error: can't birth child\n\n");
+        printf("Error: Can't give birth to child\n\n");
         exit(1);
     }
     
     // print PID and sleep
-    if( pid_val == 0) {
-        for( int i = 0; i < 10; i++) {
+    if( pid_val == 0 ) {
+        for( int i = 0; i < 10; i++ ) {
             printf("PID = %d\n", pid_val);
             sleep(1);
         }

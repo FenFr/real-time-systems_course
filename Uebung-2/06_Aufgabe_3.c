@@ -62,9 +62,10 @@ int main(int argc, char**argv) {
 int power_f(int base, int exponent) {
     
     int power = 1;
+
     while(0 < exponent--)
         power *= base;
-
+    
     return power;
 }
 

@@ -29,9 +29,12 @@ void hex_print(FILE *dz, char *s) {
 	else {
 		printf("Hex print of %s\n\n",s);
 		switch(fork()) {
+		// Error Detection
 		case -1:{	fprintf(stderr, "fork() failed\n");
 					exit(1);
 				}
+		
+		// Child-Process
 		case  0:{	int i=1;
 					unsigned char read_char;
 	
@@ -47,6 +50,8 @@ void hex_print(FILE *dz, char *s) {
 					close(fd[0]);
 					exit(0);
 				}
+
+		// Parent-Process
 		default:{	unsigned char c;
 					int status;
 
@@ -69,10 +74,10 @@ int main(int argc, char *argv[]) {
 	int    i;
 
 	if (argc < 2) {
-		fprintf(stderr, "Call: aufgabe1 <filename>\n");
+		fprintf(stderr, "Call: 02_Aufgabe_1 <filename>\n");
 		exit(1);
 	}
-	for (i=1; i<argc; i++) {
+	for (i = 1; i < argc; i++) {
 		if ((dz=fopen(argv[i],"rb")) == NULL ) {
 			fprintf(stderr,"Can't open file %s\n", argv[i]);
 			exit(1);
