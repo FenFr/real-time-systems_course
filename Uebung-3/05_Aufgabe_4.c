@@ -4,9 +4,9 @@
 // Exercise instructor: M.Sc. Michael Rethfeldt
 // Co-Author:			Fenja Freitag
 // Exercise:      		3
-// Task:          		1
-// Name:          		02_Aufgabe_1.c
-// Description:   		Introduction to pipes
+// Task:          		4
+// Name:          		05_Aufgabe_4.c
+// Description:   		Reader and writer
 //////////////////////////////////////////////////////////////////////////////
 
 
