@@ -8,6 +8,8 @@
 // Name:          		04_Aufgabe_5.c
 // Description:   		Exchange of data between independent processes using shared memory
 //////////////////////////////////////////////////////////////////////////////
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
