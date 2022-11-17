@@ -17,7 +17,6 @@
 #include <time.h>
 
 
-
 int power_f(int base, int exponent);                // returns the power = base^{exponent}
 
 int sti(char *s);                                   // turn a string of numbers into an integer
@@ -63,11 +62,8 @@ int main(int argc, char**argv) {
 int power_f(int base, int exponent) {
     
     int power = 1;
-
-    while(exponent > 0) {
+    while(0 < exponent--)
         power *= base;
-        exponent--;
-    }
 
     return power;
 }
@@ -76,7 +72,7 @@ int power_f(int base, int exponent) {
 int sti(char *s) {
 
     int s_size = 0;
-    int nbr = 0;
+    int nbr    = 0;
 
     for(s_size = 0; s[s_size] != '\0'; s_size++)
         switch (s[s_size]) {
@@ -96,7 +92,6 @@ int sti(char *s) {
                             exit(3);
                         }
         }
-
 
     for(int i = 0; i < s_size; i++) {                   // '0' == 48 and '9' == 57
         nbr += (s[s_size-i-1] - 48) * power_f(10, i);
@@ -134,7 +129,7 @@ int child_spawner(int cc) {
             fork_pid = fork();
 
         else if(fork_pid == -1) {
-            printf("Error: fork() didn't work!");
+            printf("Error: Could not give birth to child");
             exit(4);
         }
         if(fork_pid == 0)

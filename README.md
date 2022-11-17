@@ -15,7 +15,7 @@ pid_t fork( void );
 | :----: | :---------------------------------------------------------------------- |
 |   -1   | creation of child process unsuccessful                                  |
 |   0    | returned to newly created child process                                 |
-|  > 0   | returned to parent / value == process ID of newly created child process |
+|  > 0   | returned to parent / value == process ID of newly created child proces  |
 
 
 #### wait ()
@@ -34,3 +34,14 @@ pid_t wait( int *stat_lock );
 #include <unistd.h>
 int execl( const char *path, "ls", const char *arg_1, ..., NULL );
 ```
+
+
+## Concepts
+
+### Pipes
+
+
+### Signals
+
+
+### Message Queues
