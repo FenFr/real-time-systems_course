@@ -23,7 +23,7 @@
 #include <string.h>
 #include <memory.h>
 
-//////////////////////////////////////////////////////////////////////////////
+
 #define	DEFAULT_PROCESSCOUNT	3
 //#define PERMISSIONS		0666
 #define PERMISSIONS		S_IRUSR | S_IWUSR
@@ -34,31 +34,38 @@
 									printerrorexit("Error locking semaphore!", errno ); }
 #define UNLOCK_SEMAPHORE(id) 	{ if ( semop(id, &(sem_unlock[0]), 1)==-1 )\
 									printerrorexit("Error unlocking semaphore!", errno ); }
-//////////////////////////////////////////////////////////////////////////////
-typedef struct
-{		long	exitcount;
-		char	buf[MAXBUFFER];
+
+
+typedef struct {
+	long	exitcount;
+	char	buf[MAXBUFFER];
 } shared_mem;
-union semun					// should be defined in sys/sem.h
-{	int val;				// value for SETVAL
+
+union semun {					// should be defined in sys/sem.h
+	int val;				// value for SETVAL
 	struct semid_ds *buf;			// buffer for IPC_STAT, IPC_SET
 	unsigned short *array;			// array for GETALL, SETALL
 									// Linux specific part:
 	struct seminfo *__buf;			// buffer for IPC_INFO
 };
+
 static struct sembuf sem_lock[1]=
 {	SEMAPHORE_NUMBER, -1,	0		// semaphore 0, operation decrement by 1, flags=0
 };
+
 static struct sembuf sem_unlock[1]=
 {	SEMAPHORE_NUMBER, 1,	0		// semaphore 0, operation increment by 1, flags=0
 };
 
-//////////////////////////////////////////////////////////////////////////////
+
 void printerrorexit(char *str, int errornumber)
 {	fprintf(stderr, "%s %d=%s\n", str, errornumber, strerror(errornumber));
 	exit(errno);
 }
-//////////////////////////////////////////////////////////////////////////////
+
+
+// MAIN //////////////////////////////////////////////////////////////////////
+
 int main(int argc, char *argv[])
 {	key_t		semkey, shmkey;
 	int 		i, semid, maxprocesses, shmid, status, retvalue;
@@ -150,3 +157,5 @@ int main(int argc, char *argv[])
 
 	return 0;
 }
+
+// MAIN END //////////////////////////////////////////////////////////////////

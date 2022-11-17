@@ -23,7 +23,7 @@
 #include <string.h>
 #include <memory.h>
 
-//////////////////////////////////////////////////////////////////////////////
+
 #define	DEFAULT_PROCESSCOUNT	3
 //#define PERMISSIONS		0666
 #define PERMISSIONS		S_IRUSR | S_IWUSR
@@ -34,7 +34,8 @@
 									printerrorexit("Error locking semaphore!", errno ); }
 #define UNLOCK_SEMAPHORE(id) 	{ if ( semop(id, &(sem_unlock[0]), 1)==-1 )\
 									printerrorexit("Error unlocking semaphore!", errno ); }
-//////////////////////////////////////////////////////////////////////////////
+
+
 typedef struct
 {		long	exitcount;
 		char	buf[MAXBUFFER];
@@ -53,12 +54,15 @@ static struct sembuf sem_unlock[1]=
 {	SEMAPHORE_NUMBER, 1,	0		// semaphore 0, operation increment by 1, flags=0
 };
 
-//////////////////////////////////////////////////////////////////////////////
+
 void printerrorexit(char *str, int errornumber)
 {	fprintf(stderr, "%s %d=%s\n", str, errornumber, strerror(errornumber));
 	exit(errno);
 }
-//////////////////////////////////////////////////////////////////////////////
+
+
+// MAIN //////////////////////////////////////////////////////////////////////
+
 int main(int argc, char *argv[])
 {	key_t		semkey, shmkey;
 	int 		i, semid, maxprocesses, shmid, retvalue, status;
@@ -137,3 +141,5 @@ int main(int argc, char *argv[])
 
 	return 0;
 }
+
+// MAIN END //////////////////////////////////////////////////////////////////

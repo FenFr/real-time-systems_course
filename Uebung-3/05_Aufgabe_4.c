@@ -2,11 +2,11 @@
 // Course:	  			Real Time Systems
 // Lecturer:      		Dr.-Ing. Frank Golatowski
 // Exercise instructor: M.Sc. Michael Rethfeldt
-// Co-Author:			Fenja Freitag
+// Author:				Fenja Freitag
 // Exercise:      		3
 // Task:          		4
 // Name:          		05_Aufgabe_4.c
-// Description:   		Reader and writer
+// Description:   		Reader and Writer
 //////////////////////////////////////////////////////////////////////////////
 
 
@@ -17,76 +17,63 @@
 #include <ctype.h>
 
 
-void hex_print(FILE *dz, char *s) {
-	
-	int fd[2];
-
-	if (pipe(fd) != 0) {
-		fprintf(stderr, "Error while creating pipe!\n");
-		exit(1);
-	} 
-	
-	else {
-		printf("Hex print of %s\n\n",s);
-		
-		switch(fork()) {
-		// Error Detection
-		case -1:{	fprintf(stderr, "fork() failed\n");
-					exit(1);
-				}
-		
-		// Child-Process
-		case  0:{	int i=1;
-					unsigned char read_char;
-	
-					close(fd[1]);
-					while (read(fd[0], &read_char, 1) > 0) {
-						printf(" %02x", read_char);
-						if (++i > 16) {
-							printf("\n");
-							i=1;
-						}
-					}
-					printf("\n");
-					close(fd[0]);
-					exit(0);
-				}
-
-		// Parent-Process
-		default:{	unsigned char c;
-					int status;
-
-					close(fd[0]);
-					while (fread(&c,1,1,dz) > 0)
-						write(fd[1], &c, 1);
-					close(fd[1]);
-					wait(&status);
-				}
-		}
-	}
-}
+int birth_child();
 
 
 // MAIN //////////////////////////////////////////////////////////////////////
 
-int main(int argc, char *argv[]) {
+int main(int argc, char**argv) {
 	
-	FILE *dz;
-	int    i;
-
-	if (argc < 2) {
-		fprintf(stderr, "Call: 02_Aufgabe_1 <filename>\n");
+	int fd[2];
+	if( pipe(fd) == -1) {
+		printf("\nError: Pipe busted!\n");
 		exit(1);
 	}
-	for (i = 1; i < argc; i++) {
-		if ((dz=fopen(argv[i],"rb")) == NULL ) {
-			fprintf(stderr,"Can't open file %s\n", argv[i]);
-			exit(1);
-		} else {
-			hex_print(dz,argv[i]);
-			fclose(dz);
-		}
+
+	switch( birth_child(2) ) {
+		case -1 :	printf("\nError: Could not birth child!\n");
+					exit(1);
+
+		// Parent
+		case  0 :	int status_1, status_2;			
+					close( fd[1] );
+					close( fd[0] );
+					wait(&status_1);
+					wait(&status_2);
+					break;
+		
+		// Writer Child
+		case  1 :	int number_1 = 42069;
+					close( fd[0] );
+					write( fd[1], &number_1, sizeof(number_1));
+					exit(0);
+
+		// Reader Child
+		default :	int number_2;
+					close( fd[1] );
+					read ( fd[0], &number_2, sizeof(number_2));
+					printf("Data = %d\n", number_2);
+					exit(0);
 	}
+
+	return 0;
 }
 
 // MAIN END //////////////////////////////////////////////////////////////////
+
+
+int birth_child(int nbr) {
+
+	pid_t pid_id;
+
+	while( 0 < nbr ) {
+		if( (pid_id = fork()) == -1 ) {
+			return -1;
+		}
+		else if( pid_id == 0 )
+			return nbr;
+		nbr--;
+	}
+
+	return 0;
+}
