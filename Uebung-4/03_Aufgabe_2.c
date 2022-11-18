@@ -2,10 +2,10 @@
 // Course:	  			Real Time Systems
 // Lecturer:      		Dr.-Ing. Frank Golatowski
 // Exercise instructor: M.Sc. Michael Rethfeldt
-// Author:  			Fenja Freitag
+// Author   :			Fenja Freitag
 // Exercise:      		4
-// Task:          		1
-// Name:          		02_Aufgabe_1.c
+// Task:          		2
+// Name:          		03_Aufgabe_1.c
 // Description:   		Message queue within a single process
 //////////////////////////////////////////////////////////////////////////////
 
