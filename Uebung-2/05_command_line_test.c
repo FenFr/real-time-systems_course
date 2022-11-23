@@ -2,7 +2,7 @@
 // Course:	  			Real Time Systems
 // Lecturer:      		Dr.-Ing. Frank Golatowski
 // Exercise instructor: M.Sc. Michael Rethfeldt
-// Author:              Fenja Freitag
+// Author:              Fenya Freitag
 // Exercise:      		2
 // Task:          		n.A.
 // Name:          		05_command_line_test.c

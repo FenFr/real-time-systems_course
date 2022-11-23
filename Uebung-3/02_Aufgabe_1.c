@@ -2,7 +2,7 @@
 // Course:	  			Real Time Systems
 // Lecturer:      		Dr.-Ing. Frank Golatowski
 // Exercise instructor: M.Sc. Michael Rethfeldt
-// Co-Author:			Fenja Freitag
+// Co-Author:			Fenya Freitag
 // Exercise:      		3
 // Task:          		1
 // Name:          		02_Aufgabe_1.c
