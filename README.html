@@ -1,0 +1,877 @@
+<!DOCTYPE html><html><head>
+      <title>README</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:////home/fenya/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.6.5/node_modules/@shd101wyy/mume/dependencies/katex/katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h1 class="mume-header" id="real-time-systems">Real-Time-Systems</h1>
+
+<ul>
+<li><a href="#real-time-systems">Real-Time-Systems</a>
+<ul>
+<li><a href="#commands">Commands</a>
+<ul>
+<li><a href="#fork-">fork ()</a></li>
+<li><a href="#wait-">wait ()</a></li>
+<li><a href="#pipe-">pipe ()</a></li>
+<li><a href="#signal-">signal ()</a></li>
+<li><a href="#execl-">execl ()</a></li>
+</ul>
+</li>
+<li><a href="#file-in-output">File In-/Output</a>
+<ul>
+<li><a href="#create">create()</a></li>
+<li><a href="#open">open()</a></li>
+<li><a href="#close">close()</a></li>
+<li><a href="#read">read()</a></li>
+<li><a href="#write">write()</a></li>
+</ul>
+</li>
+<li><a href="#message-queue">Message Queue</a>
+<ul>
+<li><a href="#msgget">msgget()</a></li>
+<li><a href="#msgsnd">msgsnd()</a></li>
+<li><a href="#msgrcv">msgrcv()</a></li>
+<li><a href="#msgctl">msgctl()</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 class="mume-header" id="commands">Commands</h2>
+
+<h4 class="mume-header" id="fork">fork ()</h4>
+
+<ul>
+<li>creates new process - the child process</li>
+<li>child process starts right after the fork() function was called</li>
+<li>a child process can call another chid processf</li>
+<li>when multiple child processes are called it is uncertain which one will be executed first</li>
+</ul>
+<pre data-role="codeBlock" data-info="c" class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;sys/types.h&gt;</span></span>
+<span class="token class-name">pid_t</span> <span class="token function">fork</span><span class="token punctuation">(</span> <span class="token keyword keyword-void">void</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><table>
+<thead>
+<tr>
+<th style="text-align:center">Return</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">-1</td>
+<td style="text-align:left">Error</td>
+</tr>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:left">returned to newly created child process</td>
+</tr>
+<tr>
+<td style="text-align:center">&gt; 0</td>
+<td style="text-align:left">returned to parent / value == process ID of newly created child process</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Coding examples:</strong></p>
+<pre data-role="codeBlock" data-info="c" class="language-c"><span class="token class-name">pid_t</span> pid <span class="token operator">=</span> <span class="token function">fork</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword keyword-if">if</span><span class="token punctuation">(</span> pid <span class="token operator">==</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">&quot;Error!&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   
+    <span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword keyword-else">else</span> <span class="token keyword keyword-if">if</span><span class="token punctuation">(</span> pid <span class="token operator">==</span> <span class="token number">0</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// instructions for child-process</span>
+<span class="token punctuation">}</span>
+<span class="token keyword keyword-else">else</span> <span class="token punctuation">{</span>
+    <span class="token comment">// instructions for parent-process</span>
+<span class="token punctuation">}</span>
+</pre><pre data-role="codeBlock" data-info="c" class="language-c"><span class="token keyword keyword-switch">switch</span> <span class="token punctuation">(</span> <span class="token function">fork</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-case">case</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">:</span>   <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">&quot;Error!&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+              
+    <span class="token keyword keyword-case">case</span>  <span class="token number">0</span> <span class="token operator">:</span>   <span class="token comment">// instructions for child-process</span>
+                <span class="token keyword keyword-break">break</span><span class="token punctuation">;</span>
+    <span class="token keyword keyword-default">default</span> <span class="token operator">:</span>   <span class="token comment">// instructions for parent-process</span>
+                <span class="token keyword keyword-break">break</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><h4 class="mume-header" id="wait">wait ()</h4>
+
+<ul>
+<li>blocks the parent process till one child process exits or a signal is created</li>
+<li>usually called after <code>fork()</code></li>
+</ul>
+<pre data-role="codeBlock" data-info="c" class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;sys/types.h&gt;</span></span>
+<span class="token class-name">pid_t</span> <span class="token function">wait</span><span class="token punctuation">(</span> <span class="token keyword keyword-int">int</span> <span class="token operator">*</span>stat_lock <span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><h4 class="mume-header" id="pipe">pipe ()</h4>
+
+<ul>
+<li>connects two processes</li>
+<li>standart output of one process becomes standart input of other process</li>
+<li>one way communication</li>
+</ul>
+<pre data-role="codeBlock" data-info="c" class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;sys/types.h&gt;</span></span>
+<span class="token keyword keyword-int">int</span> <span class="token function">pipe</span><span class="token punctuation">(</span> <span class="token keyword keyword-int">int</span> fds<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><table>
+<thead>
+<tr>
+<th style="text-align:center">Return</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">-1</td>
+<td style="text-align:left">Error</td>
+</tr>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:left">Succsess</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Parameter</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">fd[0]</td>
+<td style="text-align:left">file descriptor for the &apos;read end&apos;</td>
+</tr>
+<tr>
+<td style="text-align:center">fd[1]</td>
+<td style="text-align:left">file descriptor for the &apos;write end&apos;</td>
+</tr>
+</tbody>
+</table>
+<h4 class="mume-header" id="signal">signal ()</h4>
+
+<pre data-role="codeBlock" data-info="c" class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;signal.h&gt;</span></span>
+<span class="token keyword keyword-void">void</span> <span class="token operator">*</span><span class="token function">signal</span><span class="token punctuation">(</span> <span class="token keyword keyword-int">int</span> sig<span class="token punctuation">,</span> <span class="token keyword keyword-void">void</span> <span class="token punctuation">(</span><span class="token operator">*</span>func<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token keyword keyword-int">int</span><span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token keyword keyword-int">int</span><span class="token punctuation">)</span>
+</pre><ul>
+<li><code>sig</code> is the signal number to which a handling function is set</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">sig</th>
+<th style="text-align:left">Macro &amp; Signal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>SIGABRT</code></td>
+<td style="text-align:left">(Signal Abort) Abnormal termination, such as is initiated by the function</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>SIGFPE</code></td>
+<td style="text-align:left">(Signal Floating-Point Exception) Erroneous arithmetic operation, such as zero divide or an peration resulting in overflow (not necessarily with a floating-point operation).</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>SIGILL</code></td>
+<td style="text-align:left">(Signal Illegal Instruction) Invalid function image, such as an illegal instruction. This is generally due to a corruption in the code or to an attempt to execute data.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>SIGINT</code></td>
+<td style="text-align:left">(Signal Interrupt) Interactive attention signal. Generally generated by the application user.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>SIGSEGV</code></td>
+<td style="text-align:left">(Signal Segmentation Violation) Invalid access to storage &#x2212; When a program tries to read or write outside the memory it is allocated for it.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>SIGTERM</code></td>
+<td style="text-align:left">(Signal Terminate) Termination request sent to program.</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>*func</code> is a pointer to a function (either defiend by programmer or predefined)</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">func</th>
+<th style="text-align:left">Function &amp; Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>SIG_DFL</code></td>
+<td style="text-align:left">Default handling &#x2212; The signal is handled by the default action for that particular signal.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>SIG_IGN</code></td>
+<td style="text-align:left">Ignore Signal &#x2212; The signal is ignored.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Return</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>SIG_ERR</code></td>
+<td style="text-align:left">Error</td>
+</tr>
+<tr>
+<td style="text-align:center">&gt; 0</td>
+<td style="text-align:left">previous value of the signal handler</td>
+</tr>
+</tbody>
+</table>
+<h4 class="mume-header" id="execl">execl ()</h4>
+
+<pre data-role="codeBlock" data-info="c" class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;unistd.h&gt;</span></span>
+<span class="token keyword keyword-int">int</span> <span class="token function">execl</span><span class="token punctuation">(</span> <span class="token keyword keyword-const">const</span> <span class="token keyword keyword-char">char</span> <span class="token operator">*</span>path<span class="token punctuation">,</span> <span class="token string">&quot;ls&quot;</span><span class="token punctuation">,</span> <span class="token keyword keyword-const">const</span> <span class="token keyword keyword-char">char</span> <span class="token operator">*</span>arg_1<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">,</span> <span class="token constant">NULL</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><h2 class="mume-header" id="file-in-output">File In-/Output</h2>
+
+<pre data-role="codeBlock" data-info="c" class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;sys/types.h&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;sys/stat.h&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;fcntl.h&gt;</span></span>
+
+<span class="token keyword keyword-int">int</span> <span class="token function">create</span><span class="token punctuation">(</span> <span class="token keyword keyword-char">char</span> <span class="token operator">*</span>filename<span class="token punctuation">,</span> <span class="token class-name">mode_t</span> mode <span class="token punctuation">)</span>
+<span class="token keyword keyword-int">int</span> <span class="token function">open</span>  <span class="token punctuation">(</span> <span class="token keyword keyword-const">const</span> <span class="token keyword keyword-char">char</span><span class="token operator">*</span> path<span class="token punctuation">,</span> <span class="token keyword keyword-int">int</span> flags <span class="token punctuation">[</span> <span class="token keyword keyword-int">int</span> mode <span class="token punctuation">]</span> <span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token keyword keyword-int">int</span> <span class="token function">close</span> <span class="token punctuation">(</span> <span class="token keyword keyword-int">int</span> fd <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">size_t</span> <span class="token function">read</span> <span class="token punctuation">(</span> <span class="token keyword keyword-int">int</span> fd<span class="token punctuation">,</span> <span class="token keyword keyword-void">void</span><span class="token operator">*</span> buf<span class="token punctuation">,</span> <span class="token class-name">size_t</span> buf_size <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">size_t</span> <span class="token function">write</span><span class="token punctuation">(</span> <span class="token keyword keyword-int">int</span> fd<span class="token punctuation">,</span> <span class="token keyword keyword-void">void</span><span class="token operator">*</span> buf<span class="token punctuation">,</span> <span class="token class-name">size_t</span> buf_size <span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><h4 class="mume-header" id="create">create()</h4>
+
+<ul>
+<li>create new and empty file</li>
+</ul>
+<pre data-role="codeBlock" data-info="c" class="language-c"><span class="token keyword keyword-int">int</span> <span class="token function">create</span><span class="token punctuation">(</span> <span class="token keyword keyword-char">char</span> <span class="token operator">*</span>filename<span class="token punctuation">,</span> <span class="token class-name">mode_t</span> mode <span class="token punctuation">)</span>
+</pre><ul>
+<li><code>filename</code> : name of the file which you want to create</li>
+<li><code>mode</code> : indicates permissions of new file</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Return</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">-1</td>
+<td style="text-align:left">Error</td>
+</tr>
+<tr>
+<td style="text-align:center">&gt;= 0</td>
+<td style="text-align:left">Used File Descriptor</td>
+</tr>
+</tbody>
+</table>
+<h4 class="mume-header" id="open">open()</h4>
+
+<ul>
+<li>opens file for reading, writing or both</li>
+</ul>
+<pre data-role="codeBlock" data-info="c" class="language-c"><span class="token keyword keyword-int">int</span> <span class="token function">open</span><span class="token punctuation">(</span> <span class="token keyword keyword-const">const</span> <span class="token keyword keyword-char">char</span><span class="token operator">*</span> path<span class="token punctuation">,</span> <span class="token keyword keyword-int">int</span> flags <span class="token punctuation">[</span> <span class="token keyword keyword-int">int</span> mode <span class="token punctuation">]</span> <span class="token punctuation">)</span><span class="token punctuation">;</span> 
+</pre><ul>
+<li><code>path</code> : path to file which you want to use</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Flags</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>O_RDONLY</code></td>
+<td style="text-align:left">read only</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>O_WRONLY</code></td>
+<td style="text-align:left">write only</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>O_RDWR</code></td>
+<td style="text-align:left">read and write</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>O_CREAT</code></td>
+<td style="text-align:left">create file if it doesn&#x2019;t exist</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>O_EXCL</code></td>
+<td style="text-align:left">prevent creation if it already exists</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Return</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">-1</td>
+<td style="text-align:left">Error</td>
+</tr>
+<tr>
+<td style="text-align:center">&gt;= 0</td>
+<td style="text-align:left">Used File Descriptor</td>
+</tr>
+</tbody>
+</table>
+<h4 class="mume-header" id="close">close()</h4>
+
+<ul>
+<li>close the file which the file descriptor (<code>fd</code>) points to</li>
+</ul>
+<pre data-role="codeBlock" data-info="c" class="language-c"><span class="token keyword keyword-int">int</span> <span class="token function">close</span><span class="token punctuation">(</span> <span class="token keyword keyword-int">int</span> fd <span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><table>
+<thead>
+<tr>
+<th style="text-align:center">Return</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">-1</td>
+<td style="text-align:left">Error</td>
+</tr>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:left">Succsess</td>
+</tr>
+</tbody>
+</table>
+<h4 class="mume-header" id="read">read()</h4>
+
+<pre data-role="codeBlock" data-info="c" class="language-c"><span class="token class-name">size_t</span> <span class="token function">read</span><span class="token punctuation">(</span> <span class="token keyword keyword-int">int</span> fd<span class="token punctuation">,</span> <span class="token keyword keyword-void">void</span><span class="token operator">*</span> buf<span class="token punctuation">,</span> <span class="token class-name">size_t</span> buf_size <span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><ul>
+<li><code>fd</code> : file descriptor</li>
+<li><code>buf</code> : buffer to read data from</li>
+<li><code>buf_size</code> : length of buffer</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Return</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">-1</td>
+<td style="text-align:left">Error / Signal Interrupt</td>
+</tr>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:left">EOF</td>
+</tr>
+<tr>
+<td style="text-align:center">&gt; 0</td>
+<td style="text-align:left">Number of Bytes Read</td>
+</tr>
+</tbody>
+</table>
+<h4 class="mume-header" id="write">write()</h4>
+
+<pre data-role="codeBlock" data-info="c" class="language-c"><span class="token class-name">size_t</span> <span class="token function">write</span><span class="token punctuation">(</span> <span class="token keyword keyword-int">int</span> fd<span class="token punctuation">,</span> <span class="token keyword keyword-void">void</span><span class="token operator">*</span> buf<span class="token punctuation">,</span> <span class="token class-name">size_t</span> buf_size <span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><ul>
+<li><code>fd</code> : file descriptor</li>
+<li><code>buf</code> : buffer to write data to</li>
+<li><code>buf_size</code> : length of buffer</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Return</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">-1</td>
+<td style="text-align:left">Error / Signal Interrupt</td>
+</tr>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:left">EOF</td>
+</tr>
+<tr>
+<td style="text-align:center">&gt; 0</td>
+<td style="text-align:left">Number of Bytes Read</td>
+</tr>
+</tbody>
+</table>
+<h2 class="mume-header" id="message-queue">Message Queue</h2>
+
+<pre data-role="codeBlock" data-info="c" class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;sys/types.h&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;sys/ipc.h&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;sys/msg.h&gt;</span></span>
+
+<span class="token keyword keyword-int">int</span> <span class="token function">msgget</span><span class="token punctuation">(</span> <span class="token class-name">key_t</span> key<span class="token punctuation">,</span> <span class="token keyword keyword-int">int</span> msgflg <span class="token punctuation">)</span>
+<span class="token keyword keyword-int">int</span> <span class="token function">msgsnd</span><span class="token punctuation">(</span> <span class="token keyword keyword-int">int</span> msgid<span class="token punctuation">,</span> <span class="token keyword keyword-const">const</span> <span class="token keyword keyword-void">void</span> <span class="token operator">*</span>msgp<span class="token punctuation">,</span> <span class="token class-name">size_t</span> msgsz<span class="token punctuation">,</span> <span class="token keyword keyword-int">int</span> msgflg <span class="token punctuation">)</span>
+<span class="token keyword keyword-int">int</span> <span class="token function">msgrcv</span><span class="token punctuation">(</span> <span class="token keyword keyword-int">int</span> msgid<span class="token punctuation">,</span> <span class="token keyword keyword-const">const</span> <span class="token keyword keyword-void">void</span> <span class="token operator">*</span>msgp<span class="token punctuation">,</span> <span class="token class-name">size_t</span> msgsz<span class="token punctuation">,</span> <span class="token keyword keyword-long">long</span> msgtype<span class="token punctuation">,</span> <span class="token keyword keyword-int">int</span> msgflg <span class="token punctuation">)</span>
+<span class="token keyword keyword-int">int</span> <span class="token function">msgctl</span><span class="token punctuation">(</span> <span class="token keyword keyword-int">int</span> msgid<span class="token punctuation">,</span> <span class="token keyword keyword-int">int</span> cmd<span class="token punctuation">,</span> <span class="token keyword keyword-struct">struct</span> <span class="token class-name">msqid_ds</span> <span class="token operator">*</span>buf <span class="token punctuation">)</span>
+</pre><h4 class="mume-header" id="msgget">msgget()</h4>
+
+<ul>
+<li>creates or allocates a System V message queue</li>
+</ul>
+<pre data-role="codeBlock" data-info="c" class="language-c"><span class="token keyword keyword-int">int</span> <span class="token function">msgget</span><span class="token punctuation">(</span> <span class="token class-name">key_t</span> key<span class="token punctuation">,</span> <span class="token keyword keyword-int">int</span> msgflg <span class="token punctuation">)</span>
+</pre><ul>
+<li><code>key</code> : recognizes the message queue / can be an arbitrary value or derivated from <code>ftok()</code></li>
+<li><code>msgflg</code> : specifies required message queue flag/s</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Return</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">-1</td>
+<td style="text-align:left">Error</td>
+</tr>
+<tr>
+<td style="text-align:center">&gt;= 0</td>
+<td style="text-align:left">Message Queue Identifier</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Flag</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+<h4 class="mume-header" id="msgsnd">msgsnd()</h4>
+
+<ul>
+<li>sends/appends a message into the message queue</li>
+</ul>
+<pre data-role="codeBlock" data-info="c" class="language-c"><span class="token keyword keyword-int">int</span> <span class="token function">msgsnd</span><span class="token punctuation">(</span> <span class="token keyword keyword-int">int</span> msgid<span class="token punctuation">,</span> <span class="token keyword keyword-const">const</span> <span class="token keyword keyword-void">void</span> <span class="token operator">*</span>msgp<span class="token punctuation">,</span> <span class="token class-name">size_t</span> msgsz<span class="token punctuation">,</span> <span class="token keyword keyword-int">int</span> msgflg <span class="token punctuation">)</span>
+</pre><ul>
+<li><code>msgid</code> : message queue identifier (return value of <code>msgget()</code>)</li>
+<li><code>*msgp</code> : pointer to the message sent to the caller</li>
+<li><code>msgsz</code> : size of the message send</li>
+<li><code>msgflg</code> : indicates cetain flags</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Return</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">-1</td>
+<td style="text-align:left">Error</td>
+</tr>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:left">Succsess</td>
+</tr>
+</tbody>
+</table>
+<h4 class="mume-header" id="msgrcv">msgrcv()</h4>
+
+<ul>
+<li>retrieves message from the message queue</li>
+</ul>
+<pre data-role="codeBlock" data-info="c" class="language-c"><span class="token keyword keyword-int">int</span> <span class="token function">msgrcv</span><span class="token punctuation">(</span> <span class="token keyword keyword-int">int</span> msgid<span class="token punctuation">,</span> <span class="token keyword keyword-const">const</span> <span class="token keyword keyword-void">void</span> <span class="token operator">*</span>msgp<span class="token punctuation">,</span> <span class="token class-name">size_t</span> msgsz<span class="token punctuation">,</span> <span class="token keyword keyword-long">long</span> msgtype<span class="token punctuation">,</span> <span class="token keyword keyword-int">int</span> msgflg <span class="token punctuation">)</span>
+</pre><ul>
+<li><code>msgid</code> : message queue identifier (return value of <code>msgget()</code>)</li>
+<li><code>*msgp</code> : pointer to the message recieved from the caller</li>
+<li><code>msgsz</code> : size of the message received</li>
+<li><code>msgtype</code> : indicates the type of message</li>
+<li><code>msgflg</code> : indicates certain flags</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Return</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">-1</td>
+<td style="text-align:left">Error</td>
+</tr>
+<tr>
+<td style="text-align:center">&gt;= 0</td>
+<td style="text-align:left">Number of Bytes received in <code>mtext</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><code>msgtype</code></th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:left">Reads the first received message in the queue</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>+ve</code></td>
+<td style="text-align:left">Reads the first message in the queue of type msgtype</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>-ve</code></td>
+<td style="text-align:left">Reads the first message of lowest type less than or equal to the absolute value of message type</td>
+</tr>
+</tbody>
+</table>
+<h4 class="mume-header" id="msgctl">msgctl()</h4>
+
+<ul>
+<li>performs control operations of the message queue</li>
+</ul>
+<pre data-role="codeBlock" data-info="c" class="language-c"><span class="token keyword keyword-int">int</span> <span class="token function">msgctl</span><span class="token punctuation">(</span> <span class="token keyword keyword-int">int</span> msgid<span class="token punctuation">,</span> <span class="token keyword keyword-int">int</span> cmd<span class="token punctuation">,</span> <span class="token keyword keyword-struct">struct</span> <span class="token class-name">msqid_ds</span> <span class="token operator">*</span>buf <span class="token punctuation">)</span>
+</pre><ul>
+<li><code>msgid</code> : message queue identifier (return value of <code>msgget()</code>)</li>
+<li><code>cmd</code> : command to perform the required control operation on the message queue</li>
+<li><code>*buf</code> : pointer to the message queue structure named struct msqid_ds</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Return</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">-1</td>
+<td style="text-align:left">Error</td>
+</tr>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:left">Nother Operations</td>
+</tr>
+<tr>
+<td style="text-align:center">&gt; 0</td>
+<td style="text-align:left">index or identifier of the message queue</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><code>cmd</code></th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>IPC_STAT</code></td>
+<td style="text-align:left">Copies information of the current values of each member of struct msqid_ds to the passed structure pointed by buf. This command requires read permission on the message queue.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>IPC_SET</code></td>
+<td style="text-align:left">Sets the user ID, group ID of the owner, permissions etc pointed to by structure buf.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>IPC_RMID</code></td>
+<td style="text-align:left">Removes the message queue immediately.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>IPC_INFO</code></td>
+<td style="text-align:left">Returns information about the message queue limits and parameters in the structure pointed by buf, which is of type struct msginfo</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>MSG_INFO</code></td>
+<td style="text-align:left">Returns an msginfo structure containing information about the consumed system resources by the message queue.</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
