@@ -1,5 +1,5 @@
 # Change the path in the varaiable (FILE) below to include the current programm;
-# Then type 'make' into the Terminal to build your Program
+# Then type 'make' into the Terminal to build your Programm
 FILE    = Uebung-4/03_Aufgabe_2.c
 
 
@@ -13,15 +13,10 @@ OBJECTS = ${PATH}make_child.o ${PATH}power_f.o ${PATH}readc.o ${PATH}string_to_i
 main:				${FILE} ${OBJECTS}
 					gcc -o main.o ${FILE} ${OBJECTS}
 
-
-make_child.o:		${HEADER}
-
+make_child.o:	 	${HEADER}
 power_f.o:			${HEADER}
-
 readc.o:			${HEADER}
-
 string_to_int.o:	${HEADER}
-
 
 .PHONY: 			clean
  clean:

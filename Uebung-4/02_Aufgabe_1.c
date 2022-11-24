@@ -19,7 +19,7 @@
 
 struct msgbuf {
     long mtype;
-    char mtext[100];
+    char mtext[3];
 } s_message, r_message;
 
 
@@ -27,7 +27,7 @@ void my_read(char *arr, int size) {
     char c;
     int  i = 0;
 
-    while( ((c = getc(stdin)) != '\n') && (i < size) )
+    while( ((c = getc(stdin)) != '\n') && (i < size-1) )
         arr[i++] = c;
 
     arr[i] = '\0';
