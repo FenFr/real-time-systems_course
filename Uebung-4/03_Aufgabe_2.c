@@ -16,7 +16,7 @@
 #include <sys/ipc.h>
 #include <sys/msg.h>
 
-#include "my_functions.h"
+#include "../My_Functions/my_functions.h"
 
 
 struct msgbuf {
@@ -44,11 +44,11 @@ int main(int argc, char**argv) {
                     exit(1);
 
         // Parent-Process
-        case  0 :
+        case  0 :   printf("I  am  Father  with  P-ID %d\n", pc_id.p_id);
                     break;
 
         // Child-Processes
-        default :   printf("Child\n");
+        default :   printf("I am Child #%2d with P-ID %d\n", pc_id.c_id, pc_id.p_id);
     }
 
     return 0;

@@ -8,7 +8,7 @@
 //                      with their individual Child ID (c_id) and Process ID 
 //                      (p_id)
 //
-//                      Return Values (c_id):
+//                      Return Values for c_id:
 //                         -1 ... the function failed / error
 //                          0 ... ID of parent process
 //                        > 0 ... ID of child  process
