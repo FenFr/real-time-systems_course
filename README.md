@@ -8,16 +8,16 @@
       - [signal ()](#signal-)
       - [execl ()](#execl-)
   - [File In-/Output](#file-in-output)
-      - [create()](#create)
-      - [open()](#open)
-      - [close()](#close)
-      - [read()](#read)
-      - [write()](#write)
+      - [create ()](#create-)
+      - [open ()](#open-)
+      - [close ()](#close-)
+      - [read ()](#read-)
+      - [write ()](#write-)
   - [Message Queue](#message-queue)
-      - [msgget()](#msgget)
-      - [msgsnd()](#msgsnd)
-      - [msgrcv()](#msgrcv)
-      - [msgctl()](#msgctl)
+      - [msgget ()](#msgget-)
+      - [msgsnd ()](#msgsnd-)
+      - [msgrcv ()](#msgrcv-)
+      - [msgctl ()](#msgctl-)
 
 ## Commands
 
@@ -137,8 +137,8 @@ int execl( const char *path, "ls", const char *arg_1, ..., NULL );
 
 ## File In-/Output
 ```c
-#include<sys/types.h>
-#include<sys/stat.h>
+#include <sys/types.h>
+#include <sys/stat.h>
 #include <fcntl.h>
 
 int create( char *filename, mode_t mode )
@@ -148,7 +148,7 @@ size_t read ( int fd, void* buf, size_t buf_size );
 size_t write( int fd, void* buf, size_t buf_size );
 ```
 
-#### create()
+#### create ()
 - create new and empty file
 ```c
 int create( char *filename, mode_t mode )
@@ -161,7 +161,7 @@ int create( char *filename, mode_t mode )
 |   -1   | Error                |
 |  >= 0  | Used File Descriptor |
 
-#### open()
+#### open ()
 - opens file for reading, writing or both
 ```c
 int open( const char* path, int flags [ int mode ] ); 
@@ -181,7 +181,7 @@ int open( const char* path, int flags [ int mode ] );
 |   -1   | Error                |
 |  >= 0  | Used File Descriptor |
 
-#### close()
+#### close ()
 - close the file which the file descriptor (`fd`) points to
 ```c
 int close( int fd );
@@ -192,7 +192,7 @@ int close( int fd );
 |   0    | Succsess    |
 
 
-#### read()
+#### read ()
 ```c
 size_t read( int fd, void* buf, size_t buf_size );
 ```
@@ -207,7 +207,7 @@ size_t read( int fd, void* buf, size_t buf_size );
 |  > 0   | Number of Bytes Read     |
 
 
-#### write()
+#### write ()
 ```c
 size_t write( int fd, void* buf, size_t buf_size );
 ```
@@ -234,7 +234,7 @@ int msgrcv( int msgid, const void *msgp, size_t msgsz, long msgtype, int msgflg 
 int msgctl( int msgid, int cmd, struct msqid_ds *buf )
 ```
 
-#### msgget()
+#### msgget ()
 - creates or allocates a System V message queue
 
 ```c
@@ -252,7 +252,7 @@ int msgget( key_t key, int msgflg )
 | :---: | :---------- |
 
 
-#### msgsnd()
+#### msgsnd ()
 - sends/appends a message into the message queue
 
 ```c
@@ -269,7 +269,7 @@ int msgsnd( int msgid, const void *msgp, size_t msgsz, int msgflg )
 |   0    | Succsess    |
 
 
-#### msgrcv()
+#### msgrcv ()
 - retrieves message from the message queue
 
 ```c
@@ -293,7 +293,7 @@ int msgrcv( int msgid, const void *msgp, size_t msgsz, long msgtype, int msgflg 
 |   `-ve`   | Reads the first message of lowest type less than or equal to the absolute value of message type |
 
 
-#### msgctl()
+#### msgctl ()
 - performs control operations of the message queue
 
 ```c

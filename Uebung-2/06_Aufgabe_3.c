@@ -88,10 +88,9 @@ int sti(char *s) {
             case '8' : continue;
             case '9' : continue;
             case '\0': break;
-            default  :  {   printf("Error: only numbers allowed as input!\n");
-                            printf("%c is not a valid Input!\n\n", s[s_size]);
-                            exit(3);
-                        }
+            default  :  printf("Error: only numbers allowed as input!\n");
+                        printf("%c is not a valid Input!\n\n", s[s_size]);
+                        exit(3);
         }
 
     for(int i = 0; i < s_size; i++) {                   // '0' == 48 and '9' == 57
@@ -123,18 +122,14 @@ void pseudo_random(int *arr, int size, int max) {
 int child_spawner(int cc) {
 
     pid_t fork_pid = 1;
-    int child_counter = 0;
 
-    for(int i = cc; i > 0; i--) {
-        if(fork_pid > 0) 
-            fork_pid = fork();
+    for(int i = 0; i <= cc; i++) {
+        switch(fork_pid = fork()) {
+            case -1 :   printf("Error: Could not birth child");
+                        exit(2);
 
-        else if(fork_pid == -1) {
-            printf("Error: Could not give birth to child");
-            exit(4);
+            case  0 :   return i;
         }
-        if(fork_pid == 0)
-            return i;
     }
 
     return 0;

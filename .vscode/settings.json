@@ -2,6 +2,8 @@
     "files.associations": {
         "stdio.h": "c",
         "unistd.h": "c",
-        "sem.h": "c"
+        "sem.h": "c",
+        "my_functions.h": "c",
+        "types.h": "c"
     }
 }
