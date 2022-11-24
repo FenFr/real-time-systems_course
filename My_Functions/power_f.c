@@ -2,7 +2,7 @@
 // Course:	  			Real Time Systems
 // Lecturer:      		Dr.-Ing. Frank Golatowski
 // Exercise instructor: M.Sc. Michael Rethfeldt
-// Author   :			Fenya Freitag
+// Author:  			Fenya Freitag
 // Name:          		power_f.c
 // Description:   		Returns the power = base^{exponent}
 //////////////////////////////////////////////////////////////////////////////

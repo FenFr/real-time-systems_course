@@ -2,7 +2,7 @@
 // Course:	  			Real Time Systems
 // Lecturer:      		Dr.-Ing. Frank Golatowski
 // Exercise instructor: M.Sc. Michael Rethfeldt
-// Author   :			Fenya Freitag
+// Author:  			Fenya Freitag
 // Name:          		string_to_int.c
 // Description:   		Turns a string (only containing of numbers) into
 //                      an integer value with the same numbers

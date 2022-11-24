@@ -5,8 +5,7 @@
 // Author:  			Fenya Freitag
 // Name:          		make_child.c
 // Description:   		Creates a given number of childs and returns them with
-//                      with their individual Child ID (c_id) and Process ID 
-//                      (p_id)
+//                      with their individual Child ID (c_id)
 //
 //                      Return Values for c_id:
 //                         -1 ... the function failed / error
@@ -21,21 +20,18 @@
 #include "my_functions.h"
 
 
-PC_ID make_child(int cc) {
+cid_t make_child(int cc) {
 
-    PC_ID temp;
-    temp.p_id = 1;
+    cid_t c_id;
 
-    for(int i = cc; i > 0; i--) {
-        switch(temp.p_id = fork()) {
-            case -1 :   temp.c_id = -1;
-                        return temp;
+    while(cc > 0) {
+        switch(c_id = fork()) {
+            case -1 :   return -1;
 
-            case  0 :   temp.c_id =  i;
-                        return temp;
+            case  0 :   return cc;
         }
+        cc--;
     }
 
-    temp.c_id = 0;
-    return temp;
+    return 0;
 }

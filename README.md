@@ -28,6 +28,7 @@
 - when multiple child processes are called it is uncertain which one will be executed first
 
 ```c
+#include <unistd.h>
 #include <sys/types.h>
 pid_t fork( void );
 ```
@@ -66,13 +67,20 @@ switch ( fork() ) {
 }
 ```
 
+**Get the current Process ID**
+- `getpid()` to get the current Process ID
+- `getppid()` to get the parents Process ID
+```c
+int getpid ( void );
+int getppid( void );
+```
 
 #### wait ()
 - blocks the parent process till one child process exits or a signal is created 
 - usually called after `fork()`
 
 ```c
-#include <sys/types.h>
+#include <sys/wait.h>
 pid_t wait( int *stat_lock );
 ```
 
@@ -251,6 +259,12 @@ int msgget( key_t key, int msgflg )
 | Flag  | Description |
 | :---: | :---------- |
 
+**ftock ()**
+```c
+key_t ftok(const char *pathname, int proj_id);
+```
+- `*pathname` : refers to an existing, accessible file
+- `proj_id` : least significant 8 Bit
 
 #### msgsnd ()
 - sends/appends a message into the message queue

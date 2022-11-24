@@ -11,7 +11,10 @@
 
 
 #include <stdio.h>
+#include <string.h>
 #include <stdlib.h>
+#include <unistd.h>
+#include <sys/wait.h>
 #include <sys/types.h>
 #include <sys/ipc.h>
 #include <sys/msg.h>
@@ -22,7 +25,7 @@
 struct msgbuf {
     long mtype;
     char mtext[100];
-} s_message, r_message;
+} message;
 
 
 // MAIN //////////////////////////////////////////////////////////////////////
@@ -35,20 +38,43 @@ int main(int argc, char**argv) {
         exit(1);
     }
 
-    // turn argv[1] into a int and spawn that number of childs
-    int argv_value  = string_to_int(argv[1]);
-    PC_ID pc_id     = make_child(argv_value);
+    message.mtype = 1;
 
-    switch(pc_id.c_id) {
+    // Create a message queue
+    key_t key = ftok("03_Aufgabe_2.c", 99);
+    int msg_id;
+    if( (msg_id = msgget(key, 0666 | IPC_CREAT)) == -1 ) {
+        printf("\nError: Can't make Message Queue\n\n");
+        exit(1);
+    }
+
+    // tTurn argv[1] into a int and spawn that number of childs
+    int argv_value = string_to_int(argv[1]);
+    cid_t c_id     = make_child(argv_value);
+
+    switch(c_id) {
         case -1 :   printf("\nError: Could not make child!\n\n");
                     exit(1);
 
+
         // Parent-Process
-        case  0 :   printf("I  am  Father  with  P-ID %d\n", pc_id.p_id);
+        case  0 :   int status;
+                    wait(&status);
+                    for(int i = 0; i < argv_value; i++) {
+                        msgrcv(msg_id, &message, sizeof(message), 1, 0);
+                        printf("%s\n", message.mtext);
+                    }
+                    msgctl(msg_id, IPC_RMID, NULL);
                     break;
 
+
         // Child-Processes
-        default :   printf("I am Child #%2d with P-ID %d\n", pc_id.c_id, pc_id.p_id);
+        default :   sprintf(message.mtext, "This is Child #%2d with P-ID %d", c_id, getpid());
+                    // printf("Sending Message: %s\n", message.mtext);
+                    if( msgsnd( msg_id, &message, sizeof(message), 0 )) {
+                        printf("\nError: Could not send Message\n\n");
+                        exit(1);
+                    }
     }
 
     return 0;

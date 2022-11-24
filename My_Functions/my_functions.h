@@ -12,15 +12,9 @@
 #define my_functions
 
 
-typedef int cid_t, pid_t;
+typedef int cid_t;
 
-typedef struct {
-    cid_t c_id;
-    pid_t p_id;
-} PC_ID;
-
-
-PC_ID make_child(int cc);
+cid_t make_child(int cc);
 
 int string_to_int(char *s);
 

@@ -3,23 +3,21 @@
 FILE    = Uebung-4/03_Aufgabe_2.c
 
 
-PATH	= My_Functions/
+WEG	= My_Functions
 
-HEADER  = ${PATH}my_functions.h
+HEADER  = ${WEG}/my_functions.h
 
-OBJECTS = ${PATH}make_child.o ${PATH}power_f.o ${PATH}readc.o ${PATH}string_to_int.o
+# Add new Functionalities here
+OBJECTS = ${WEG}/make_child.o ${WEG}/power_f.o ${WEG}/readc.o ${WEG}/string_to_int.o
 
 
-main:				${FILE} ${OBJECTS}
-					gcc -o main.o ${FILE} ${OBJECTS}
+main.o:		${FILE} ${OBJECTS}
+			gcc -o main.o ${FILE} ${OBJECTS}
 
-make_child.o:	 	${HEADER}
-power_f.o:			${HEADER}
-readc.o:			${HEADER}
-string_to_int.o:	${HEADER}
+${OBJECTS}:	${HEADER}
 
-.PHONY: 			clean
+.PHONY: 	clean
  clean:
-				   -rm main.o ${OBJECTS}
+		   -rm main.o ${OBJECTS}
 
-# Clean folder by typing in make clean
+# Clean folder by typing in 'make clean'
