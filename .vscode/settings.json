@@ -4,6 +4,7 @@
         "unistd.h": "c",
         "sem.h": "c",
         "my_functions.h": "c",
-        "types.h": "c"
+        "types.h": "c",
+        "string.h": "c"
     }
 }

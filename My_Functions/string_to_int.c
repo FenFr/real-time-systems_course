@@ -20,7 +20,7 @@ int string_to_int(char *s) {
     int nbr    = 0;
 
     // Count the size of the input string and check if it contains any forbiden signs
-    for(s_size = 0; s[s_size] != '\0'; s_size++)
+    for(s_size; s[s_size] != '\0'; s_size++)
         if( (s[s_size] < '0') || (s[s_size] > '9') ) {
             printf("Error: only numbers allowed as input!\n");
             printf("%c is not a valid Input!\n\n", s[s_size]);

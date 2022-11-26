@@ -34,7 +34,7 @@ struct msgbuf {
 int main(int argc, char**argv) {
 
     switch(argc) {
-        case 1  :   printf("Error: Must give a numbers behind the function call!\n");
+        case 1  :   printf("Error: Must give a number behind the function call!\n");
                     printf("--> %s time_intervall <--\n\n", argv[0]);
                     exit(1);
                     break;
@@ -43,7 +43,8 @@ int main(int argc, char**argv) {
     }
 
 
-   struct timespec clk_time;
+    struct timespec clk_time;
+    pid_t p_id = getpid();
     message.mtype = 1;
 
 
@@ -70,7 +71,7 @@ int main(int argc, char**argv) {
         }
 
         // Send the following message to the Message Queue
-        sprintf(message.mtext, "This is P-ID %d with Time %ld.%09ld", getpid(), clk_time.tv_sec, clk_time.tv_nsec);
+        sprintf(message.mtext, "This is P-ID %d with Time %ld.%09ld", p_id, clk_time.tv_sec, clk_time.tv_nsec);
         // printf("Sending Message: %s\n", message.mtext);
         if( msgsnd( msg_id, &message, sizeof(message), 0 )) {
             printf("\nError: Could not send Message\n\n");
