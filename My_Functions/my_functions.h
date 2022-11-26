@@ -3,7 +3,7 @@
 // Lecturer:      		Dr.-Ing. Frank Golatowski
 // Exercise instructor: M.Sc. Michael Rethfeldt
 // Author:  			Fenya Freitag
-// Name:          		child-spawner
+// Name:          		my_functions.h
 // Description:   		A Header for all my functions
 //////////////////////////////////////////////////////////////////////////////
 

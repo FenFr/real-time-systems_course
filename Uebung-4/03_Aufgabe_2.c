@@ -2,10 +2,10 @@
 // Course:	  			Real Time Systems
 // Lecturer:      		Dr.-Ing. Frank Golatowski
 // Exercise instructor: M.Sc. Michael Rethfeldt
-// Author   :			Fenya Freitag
+// Author:   			Fenya Freitag
 // Exercise:      		4
 // Task:          		2
-// Name:          		03_Aufgabe_1.c
+// Name:          		03_Aufgabe_2.c
 // Description:   		Message queues between multiple processes
 //////////////////////////////////////////////////////////////////////////////
 
@@ -48,7 +48,7 @@ int main(int argc, char**argv) {
         exit(1);
     }
 
-    // tTurn argv[1] into a int and spawn that number of childs
+    // Turn argv[1] into a int and spawn that number of childs
     int argv_value = string_to_int(argv[1]);
     cid_t c_id     = make_child(argv_value);
 
@@ -70,7 +70,6 @@ int main(int argc, char**argv) {
 
         // Child-Processes
         default :   sprintf(message.mtext, "This is Child #%2d with P-ID %d", c_id, getpid());
-                    // printf("Sending Message: %s\n", message.mtext);
                     if( msgsnd( msg_id, &message, sizeof(message), 0 )) {
                         printf("\nError: Could not send Message\n\n");
                         exit(1);

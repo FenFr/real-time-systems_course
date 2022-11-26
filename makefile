@@ -1,18 +1,18 @@
 # Change the path in the varaiable (FILE) below to include the current programm;
 # Then type 'make' into the Terminal to build your Programm
-FILE    = Uebung-4/03_Aufgabe_2.c
+FILE1    = Uebung-4/04_Aufgabe_2_SENDER.c
 
 
-WEG	= My_Functions
+WEG		= My_Functions
 
-HEADER  = ${WEG}/my_functions.h
+HEADER 	= ${WEG}/my_functions.h
 
 # Add new Functionalities here
 OBJECTS = ${WEG}/make_child.o ${WEG}/power_f.o ${WEG}/readc.o ${WEG}/string_to_int.o
 
 
-main.o:		${FILE} ${OBJECTS}
-			gcc -o main.o ${FILE} ${OBJECTS}
+main.o:		${FILE1} ${OBJECTS}
+			gcc -o main.o ${FILE1} ${OBJECTS}
 
 ${OBJECTS}:	${HEADER}
 

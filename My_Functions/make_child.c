@@ -22,10 +22,10 @@
 
 cid_t make_child(int cc) {
 
-    cid_t c_id;
+    pid_t p_id;
 
     while(cc > 0) {
-        switch(c_id = fork()) {
+        switch(p_id = fork()) {
             case -1 :   return -1;
 
             case  0 :   return cc;

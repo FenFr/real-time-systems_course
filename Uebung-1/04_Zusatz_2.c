@@ -14,15 +14,17 @@
 int main(int argc, char *argv[])
 {
 	switch ( fork() ) {
-	case 0:		printf("Son created\n");
-			break;
-	default:	switch ( fork() ) {
-			case 0: 	printf("Son created\n");
-			break;
-			default:	printf("Father\n");
-					break;
-			}
-			break;
+	case 0 :	printf("Son created\n");
+				break;
+
+	default :	switch ( fork() ) {
+					case  0 : 	printf("Son created\n");
+								break;
+
+					default :	printf("Father\n");
+								break;
+				}
+				break;
 	}
 }
 
