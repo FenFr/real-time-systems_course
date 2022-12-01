@@ -24,14 +24,12 @@ cid_t make_child(int cc) {
 
     pid_t p_id;
 
-    while(cc > 0) {
+    for(cc; cc > 0; cc--)
         switch(p_id = fork()) {
             case -1 :   return -1;
 
             case  0 :   return cc;
         }
-        cc--;
-    }
 
     return 0;
 }

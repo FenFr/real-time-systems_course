@@ -16,8 +16,11 @@ int power_f(int base, int exponent) {
     
     int power = 1;
 
-    while(0 < exponent--)
+    for(exponent; 0 < exponent; exponent--)
         power *= base;
+
+    for(exponent; 0 > exponent; exponent++)
+        power /= base;
     
     return power;
 }

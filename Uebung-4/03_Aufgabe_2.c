@@ -58,8 +58,8 @@ int main(int argc, char**argv) {
 
 
         // Parent-Process
-        case  0 :   int status;
-                    wait(&status);
+        case  0 :   // int status;
+                    // wait(&status);
                     for(int i = 0; i < argv_value; i++) {
                         msgrcv(msg_id, &message, sizeof(message), 1, 0);
                         printf("%s\n", message.mtext);
