@@ -11,10 +11,10 @@
 
 <!-- Link anchors -->
 
-[code-size-img]:    https://img.shields.io/github/languages/code-size/FenFr/cpp_and_gui_course?label=Code%20Size&style=flat-square
-[code-file-img]:    https://img.shields.io/github/directory-file-count/fenfr/cpp_and_gui_course?label=Files&style=flat-square
-[code-lines-img]:   https://img.shields.io/tokei/lines/github/fenfr/cpp_and_gui_course?label=Lines%20of%20Code&style=flat-square
-[rep-size-img]:     https://img.shields.io/github/repo-size/FenFr/cpp_and_gui_course?label=Repo%20Size&style=flat-square
+[code-size-img]:    https://img.shields.io/github/languages/code-size/FenFr/real-time-systems_course?label=Code%20Size&style=flat-square
+[code-file-img]:    https://img.shields.io/github/directory-file-count/fenfr/real-time-systems_course?label=Files&style=flat-square
+[code-lines-img]:   https://img.shields.io/tokei/lines/github/fenfr/real-time-systems_course?label=Lines%20of%20Code&style=flat-square
+[rep-size-img]:     https://img.shields.io/github/repo-size/FenFr/real-time-systems_course?label=Repo%20Size&style=flat-square
 
 
 
