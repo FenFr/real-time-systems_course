@@ -19,24 +19,26 @@
 
 
 
-- [Real-Time-Systems](#real-time-systems)
-  - [Commands](#commands)
-      - [fork ()](#fork-)
-      - [wait ()](#wait-)
-      - [pipe ()](#pipe-)
-      - [signal ()](#signal-)
-      - [execl ()](#execl-)
-  - [File In-/Output](#file-in-output)
-      - [create ()](#create-)
-      - [open ()](#open-)
-      - [close ()](#close-)
-      - [read ()](#read-)
-      - [write ()](#write-)
-  - [Message Queue](#message-queue)
-      - [msgget ()](#msgget-)
-      - [msgsnd ()](#msgsnd-)
-      - [msgrcv ()](#msgrcv-)
-      - [msgctl ()](#msgctl-)
+- [Commands](#commands)
+    - [fork ()](#fork-)
+    - [wait ()](#wait-)
+    - [pipe ()](#pipe-)
+    - [signal ()](#signal-)
+    - [execl ()](#execl-)
+- [File In-/Output](#file-in-output)
+    - [create ()](#create-)
+    - [open ()](#open-)
+    - [close ()](#close-)
+    - [read ()](#read-)
+    - [write ()](#write-)
+- [Message Queue](#message-queue)
+    - [msgget ()](#msgget-)
+    - [msgsnd ()](#msgsnd-)
+    - [msgrcv ()](#msgrcv-)
+    - [msgctl ()](#msgctl-)
+- [POSIX](#posix)
+  - [pthread\_create ( )](#pthread_create--)
+  - [pthread\_exit ( )](#pthread_exit--)
 
 ## Commands
 
@@ -349,3 +351,37 @@ int msgctl( int msgid, int cmd, struct msqid_ds *buf )
 | `IPC_RMID` | Removes the message queue immediately.                                                                                                                                         |
 | `IPC_INFO` | Returns information about the message queue limits and parameters in the structure pointed by buf, which is of type struct msginfo                                             |
 | `MSG_INFO` | Returns an msginfo structure containing information about the consumed system resources by the message queue.                                                                  |
+
+
+
+## POSIX
+
+```c
+#include <pthread.h>
+
+int pthread_create( pthread_t *thread, const pthread_attr_t *attr, void *(*start_routine)(void *), void *arg );
+void pthread_exit(void *value_ptr);
+pthread_t pthread_self(void);
+int pthread_equal(pthread_t t1, pthread_t t2);
+```
+
+### pthread_create ( )
+- Starts a given function (`start_routine`) as a thread
+```c
+int pthread_create( pthread_t *thread, const pthread_attr_t *attr, void *(*start_routine)(void *), void *arg );
+```
+- `*thread`:
+- `*attr`: Defaul value is NULL
+- `*start_routine`: pointer to a function that shall be started as a thread
+- `*arg`:
+
+| Return | Description |
+| :----: | :---------- |
+|  > 0   | Error       |
+
+
+### pthread_exit ( )
+
+```c
+void pthread_exit(void *value_ptr);
+```

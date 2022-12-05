@@ -4,32 +4,33 @@
 // Exercise instructor: M.Sc. Michael Rethfeldt
 // Author:  			Fenya Freitag
 // Exercise:      		5
-// Task:          		1
-// Name:          		02_Aufgabe_1.c
-// Description:   		Thread creation
+// Task:          		2
+// Name:          		03_Aufgabe_2.c
+// Description:   		Creating multiple threads
 //////////////////////////////////////////////////////////////////////////////
 
 
 #include <stdio.h>
-#include <stdlib.h>
 #include <pthread.h>
 
-// #include "../My_Functions/my_functions.h"
 
-
-void simple_routine();
+void routine_1();
+void routine_2();
 
 
 // MAIN //////////////////////////////////////////////////////////////////////
 
 int main(int argc, char**argv) {
 
-    pthread_t thread;
+    pthread_t threads[2];
 
-    if( pthread_create(&thread, NULL, (void *)simple_routine, 0) > 0) {
-        perror("Error: Could not create Thread");
-        exit(1);
-    }
+    pthread_create(&threads[0], NULL, (void *)routine_1, 0);
+    pthread_create(&threads[1], NULL, (void *)routine_2, 0);
+
+    // pthread_join prevents race conditions
+    pthread_join(threads[0], NULL);
+    pthread_join(threads[1], NULL);
+
     pthread_exit(0);
 
     return 0;
@@ -38,7 +39,12 @@ int main(int argc, char**argv) {
 // MAIN END //////////////////////////////////////////////////////////////////
 
 
-void simple_routine() {
-    printf("Hello World\n");
+void routine_1() {
+    printf("Hello ");
+    pthread_exit(0);
+}
+
+void routine_2() {
+    printf("World\n");
     pthread_exit(0);
 }
