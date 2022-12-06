@@ -51,7 +51,7 @@
 ```c
 #include <unistd.h>
 #include <sys/types.h>
-pid_t fork( void );
+pid_t fork ( void );
 ```
 
 | Return | Description                                                             |
@@ -92,8 +92,8 @@ switch ( fork() ) {
 - `getpid()` to get the current Process ID
 - `getppid()` to get the parents Process ID
 ```c
-int getpid ( void );
-int getppid( void );
+int getpid  ( void );
+int getppid ( void );
 ```
 
 #### wait ()
@@ -102,7 +102,7 @@ int getppid( void );
 
 ```c
 #include <sys/wait.h>
-pid_t wait( int *stat_lock );
+pid_t wait ( int *stat_lock );
 ```
 
 
@@ -113,7 +113,7 @@ pid_t wait( int *stat_lock );
 
 ```c
 #include <sys/types.h>
-int pipe( int fds[2] );
+int pipe ( int fds[2] );
 ```
 
 | Return | Description |
@@ -130,7 +130,7 @@ int pipe( int fds[2] );
 #### signal ()
 ```c
 #include <signal.h>
-void *signal( int sig, void (*func)(int) )(int)
+void *signal ( int sig, void (*func)(int) )(int)
 ```
 - `sig` is the signal number to which a handling function is set
 
@@ -159,7 +159,7 @@ void *signal( int sig, void (*func)(int) )(int)
 #### execl ()
 ```c
 #include <unistd.h>
-int execl( const char *path, "ls", const char *arg_1, ..., NULL );
+int execl ( const char *path, "ls", const char *arg_1, ..., NULL );
 ```
 
 
@@ -170,17 +170,17 @@ int execl( const char *path, "ls", const char *arg_1, ..., NULL );
 #include <sys/stat.h>
 #include <fcntl.h>
 
-int create( char *filename, mode_t mode )
-int open  ( const char* path, int flags [ int mode ] ); 
-int close ( int fd );
-size_t read ( int fd, void* buf, size_t buf_size );
-size_t write( int fd, void* buf, size_t buf_size );
+int    create ( char *filename, mode_t mode )
+int    open   ( const char* path, int flags [ int mode ] ); 
+int    close  ( int fd );
+size_t read   ( int fd, void* buf, size_t buf_size );
+size_t write  ( int fd, void* buf, size_t buf_size );
 ```
 
 #### create ()
 - create new and empty file
 ```c
-int create( char *filename, mode_t mode )
+int create ( char *filename, mode_t mode )
 ```
 - `filename` : name of the file which you want to create
 - `mode` : indicates permissions of new file
@@ -193,7 +193,7 @@ int create( char *filename, mode_t mode )
 #### open ()
 - opens file for reading, writing or both
 ```c
-int open( const char* path, int flags [ int mode ] ); 
+int open ( const char* path, int flags [ int mode ] ); 
 ```
 - `path` : path to file which you want to use
 
@@ -213,7 +213,7 @@ int open( const char* path, int flags [ int mode ] );
 #### close ()
 - close the file which the file descriptor (`fd`) points to
 ```c
-int close( int fd );
+int close ( int fd );
 ```
 | Return | Description |
 | :----: | :---------- |
@@ -223,7 +223,7 @@ int close( int fd );
 
 #### read ()
 ```c
-size_t read( int fd, void* buf, size_t buf_size );
+size_t read ( int fd, void* buf, size_t buf_size );
 ```
 - `fd` : file descriptor
 - `buf` : buffer to read data from
@@ -238,7 +238,7 @@ size_t read( int fd, void* buf, size_t buf_size );
 
 #### write ()
 ```c
-size_t write( int fd, void* buf, size_t buf_size );
+size_t write ( int fd, void* buf, size_t buf_size );
 ```
 - `fd` : file descriptor
 - `buf` : buffer to write data to
@@ -257,17 +257,17 @@ size_t write( int fd, void* buf, size_t buf_size );
 #include <sys/ipc.h>
 #include <sys/msg.h>
 
-int msgget( key_t key, int msgflg )
-int msgsnd( int msgid, const void *msgp, size_t msgsz, int msgflg )
-int msgrcv( int msgid, const void *msgp, size_t msgsz, long msgtype, int msgflg )
-int msgctl( int msgid, int cmd, struct msqid_ds *buf )
+int msgget ( key_t key, int msgflg )
+int msgsnd ( int msgid, const void *msgp, size_t msgsz, int msgflg )
+int msgrcv ( int msgid, const void *msgp, size_t msgsz, long msgtype, int msgflg )
+int msgctl ( int msgid, int cmd, struct msqid_ds *buf )
 ```
 
 #### msgget ()
 - creates or allocates a System V message queue
 
 ```c
-int msgget( key_t key, int msgflg )
+int msgget ( key_t key, int msgflg )
 ```
 - `key` : recognizes the message queue / can be an arbitrary value or derivated from `ftok()`
 - `msgflg` : specifies required message queue flag/s
@@ -282,7 +282,7 @@ int msgget( key_t key, int msgflg )
 
 **ftock ()**
 ```c
-key_t ftok(const char *pathname, int proj_id);
+key_t ftok (const char *pathname, int proj_id);
 ```
 - `*pathname` : refers to an existing, accessible file
 - `proj_id` : least significant 8 Bit
@@ -291,7 +291,7 @@ key_t ftok(const char *pathname, int proj_id);
 - sends/appends a message into the message queue
 
 ```c
-int msgsnd( int msgid, const void *msgp, size_t msgsz, int msgflg )
+int msgsnd ( int msgid, const void *msgp, size_t msgsz, int msgflg )
 ```
 - `msgid` : message queue identifier (return value of `msgget()`)
 - `*msgp` : pointer to the message sent to the caller
@@ -308,7 +308,7 @@ int msgsnd( int msgid, const void *msgp, size_t msgsz, int msgflg )
 - retrieves message from the message queue
 
 ```c
-int msgrcv( int msgid, const void *msgp, size_t msgsz, long msgtype, int msgflg )
+int msgrcv ( int msgid, const void *msgp, size_t msgsz, long msgtype, int msgflg )
 ```
 - `msgid` : message queue identifier (return value of `msgget()`)
 - `*msgp` : pointer to the message recieved from the caller
@@ -332,7 +332,7 @@ int msgrcv( int msgid, const void *msgp, size_t msgsz, long msgtype, int msgflg 
 - performs control operations of the message queue
 
 ```c
-int msgctl( int msgid, int cmd, struct msqid_ds *buf )
+int msgctl ( int msgid, int cmd, struct msqid_ds *buf )
 ```
 - `msgid` : message queue identifier (return value of `msgget()`)
 - `cmd` : command to perform the required control operation on the message queue
@@ -359,16 +359,16 @@ int msgctl( int msgid, int cmd, struct msqid_ds *buf )
 ```c
 #include <pthread.h>
 
-int pthread_create( pthread_t *thread, const pthread_attr_t *attr, void *(*start_routine)(void *), void *arg );
-void pthread_exit(void *value_ptr);
-pthread_t pthread_self(void);
-int pthread_equal(pthread_t t1, pthread_t t2);
+int       pthread_create ( pthread_t *thread, const pthread_attr_t *attr, void *(*start_routine)(void *), void *arg );
+void      pthread_exit   ( void *value_ptr );
+pthread_t pthread_self   ( void );
+int       pthread_equal  ( pthread_t t1, pthread_t t2 );
 ```
 
 ### pthread_create ( )
 - Starts a given function (`start_routine`) as a thread
 ```c
-int pthread_create( pthread_t *thread, const pthread_attr_t *attr, void *(*start_routine)(void *), void *arg );
+int pthread_create ( pthread_t *thread, const pthread_attr_t *attr, void *(*start_routine)(void *), void *arg );
 ```
 - `*thread`:
 - `*attr`: Defaul value is NULL
@@ -383,5 +383,5 @@ int pthread_create( pthread_t *thread, const pthread_attr_t *attr, void *(*start
 ### pthread_exit ( )
 
 ```c
-void pthread_exit(void *value_ptr);
+void pthread_exit (void *value_ptr);
 ```

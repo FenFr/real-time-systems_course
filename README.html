@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="file:////home/fenya/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.6.5/node_modules/@shd101wyy/mume/dependencies/katex/katex.min.css">
+      <link rel="stylesheet" href="file:///c:\Users\Jan\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.6.5\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
       
       
       
@@ -261,10 +261,12 @@ pre[data-line] .line-highlight[data-end]:after {
     </head>
     <body for="html-export">
       <div class="mume markdown-preview  ">
-      <h1 class="mume-header" id="real-time-systems">Real-Time-Systems</h1>
-
-<ul>
-<li><a href="#real-time-systems">Real-Time-Systems</a>
+      <div align="center">
+  <h1> Real-Time-Systems </h1>
+  <h3> This is my Repository for the Real-Time-Systems course at my University. </h3>
+<p>&#xA0;</p>
+<p><img src="https://img.shields.io/github/repo-size/FenFr/real-time-systems_course?label=Repo%20Size&amp;style=flat-square" alt="Repository Size"> &#xA0; <img src="https://img.shields.io/github/languages/code-size/FenFr/real-time-systems_course?label=Code%20Size&amp;style=flat-square" alt="Code Size"> &#xA0; <img src="https://img.shields.io/github/directory-file-count/fenfr/real-time-systems_course?label=Files&amp;style=flat-square" alt="Code File Size"> &#xA0; <img src="https://img.shields.io/tokei/lines/github/fenfr/real-time-systems_course?label=Lines%20of%20Code&amp;style=flat-square" alt="Lines of Code"></p>
+</div>
 <ul>
 <li><a href="#commands">Commands</a>
 <ul>
@@ -277,21 +279,25 @@ pre[data-line] .line-highlight[data-end]:after {
 </li>
 <li><a href="#file-in-output">File In-/Output</a>
 <ul>
-<li><a href="#create">create()</a></li>
-<li><a href="#open">open()</a></li>
-<li><a href="#close">close()</a></li>
-<li><a href="#read">read()</a></li>
-<li><a href="#write">write()</a></li>
+<li><a href="#create-">create ()</a></li>
+<li><a href="#open-">open ()</a></li>
+<li><a href="#close-">close ()</a></li>
+<li><a href="#read-">read ()</a></li>
+<li><a href="#write-">write ()</a></li>
 </ul>
 </li>
 <li><a href="#message-queue">Message Queue</a>
 <ul>
-<li><a href="#msgget">msgget()</a></li>
-<li><a href="#msgsnd">msgsnd()</a></li>
-<li><a href="#msgrcv">msgrcv()</a></li>
-<li><a href="#msgctl">msgctl()</a></li>
+<li><a href="#msgget-">msgget ()</a></li>
+<li><a href="#msgsnd-">msgsnd ()</a></li>
+<li><a href="#msgrcv-">msgrcv ()</a></li>
+<li><a href="#msgctl-">msgctl ()</a></li>
 </ul>
 </li>
+<li><a href="#posix">POSIX</a>
+<ul>
+<li><a href="#pthread_create--">pthread_create ( )</a></li>
+<li><a href="#pthread_exit--">pthread_exit ( )</a></li>
 </ul>
 </li>
 </ul>
@@ -305,8 +311,9 @@ pre[data-line] .line-highlight[data-end]:after {
 <li>a child process can call another chid processf</li>
 <li>when multiple child processes are called it is uncertain which one will be executed first</li>
 </ul>
-<pre data-role="codeBlock" data-info="c" class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;sys/types.h&gt;</span></span>
-<span class="token class-name">pid_t</span> <span class="token function">fork</span><span class="token punctuation">(</span> <span class="token keyword keyword-void">void</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre data-role="codeBlock" data-info="c" class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;unistd.h&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;sys/types.h&gt;</span></span>
+<span class="token class-name">pid_t</span> <span class="token function">fork</span> <span class="token punctuation">(</span> <span class="token keyword keyword-void">void</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
 </pre><table>
 <thead>
 <tr>
@@ -351,14 +358,21 @@ pre[data-line] .line-highlight[data-end]:after {
     <span class="token keyword keyword-default">default</span> <span class="token operator">:</span>   <span class="token comment">// instructions for parent-process</span>
                 <span class="token keyword keyword-break">break</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
+</pre><p><strong>Get the current Process ID</strong></p>
+<ul>
+<li><code>getpid()</code> to get the current Process ID</li>
+<li><code>getppid()</code> to get the parents Process ID</li>
+</ul>
+<pre data-role="codeBlock" data-info="c" class="language-c"><span class="token keyword keyword-int">int</span> <span class="token function">getpid</span>  <span class="token punctuation">(</span> <span class="token keyword keyword-void">void</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-int">int</span> <span class="token function">getppid</span> <span class="token punctuation">(</span> <span class="token keyword keyword-void">void</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
 </pre><h4 class="mume-header" id="wait">wait ()</h4>
 
 <ul>
 <li>blocks the parent process till one child process exits or a signal is created</li>
 <li>usually called after <code>fork()</code></li>
 </ul>
-<pre data-role="codeBlock" data-info="c" class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;sys/types.h&gt;</span></span>
-<span class="token class-name">pid_t</span> <span class="token function">wait</span><span class="token punctuation">(</span> <span class="token keyword keyword-int">int</span> <span class="token operator">*</span>stat_lock <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre data-role="codeBlock" data-info="c" class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;sys/wait.h&gt;</span></span>
+<span class="token class-name">pid_t</span> <span class="token function">wait</span> <span class="token punctuation">(</span> <span class="token keyword keyword-int">int</span> <span class="token operator">*</span>stat_lock <span class="token punctuation">)</span><span class="token punctuation">;</span>
 </pre><h4 class="mume-header" id="pipe">pipe ()</h4>
 
 <ul>
@@ -367,7 +381,7 @@ pre[data-line] .line-highlight[data-end]:after {
 <li>one way communication</li>
 </ul>
 <pre data-role="codeBlock" data-info="c" class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;sys/types.h&gt;</span></span>
-<span class="token keyword keyword-int">int</span> <span class="token function">pipe</span><span class="token punctuation">(</span> <span class="token keyword keyword-int">int</span> fds<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-int">int</span> <span class="token function">pipe</span> <span class="token punctuation">(</span> <span class="token keyword keyword-int">int</span> fds<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
 </pre><table>
 <thead>
 <tr>
@@ -407,7 +421,7 @@ pre[data-line] .line-highlight[data-end]:after {
 <h4 class="mume-header" id="signal">signal ()</h4>
 
 <pre data-role="codeBlock" data-info="c" class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;signal.h&gt;</span></span>
-<span class="token keyword keyword-void">void</span> <span class="token operator">*</span><span class="token function">signal</span><span class="token punctuation">(</span> <span class="token keyword keyword-int">int</span> sig<span class="token punctuation">,</span> <span class="token keyword keyword-void">void</span> <span class="token punctuation">(</span><span class="token operator">*</span>func<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token keyword keyword-int">int</span><span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token keyword keyword-int">int</span><span class="token punctuation">)</span>
+<span class="token keyword keyword-void">void</span> <span class="token operator">*</span><span class="token function">signal</span> <span class="token punctuation">(</span> <span class="token keyword keyword-int">int</span> sig<span class="token punctuation">,</span> <span class="token keyword keyword-void">void</span> <span class="token punctuation">(</span><span class="token operator">*</span>func<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token keyword keyword-int">int</span><span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token keyword keyword-int">int</span><span class="token punctuation">)</span>
 </pre><ul>
 <li><code>sig</code> is the signal number to which a handling function is set</li>
 </ul>
@@ -487,24 +501,24 @@ pre[data-line] .line-highlight[data-end]:after {
 <h4 class="mume-header" id="execl">execl ()</h4>
 
 <pre data-role="codeBlock" data-info="c" class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;unistd.h&gt;</span></span>
-<span class="token keyword keyword-int">int</span> <span class="token function">execl</span><span class="token punctuation">(</span> <span class="token keyword keyword-const">const</span> <span class="token keyword keyword-char">char</span> <span class="token operator">*</span>path<span class="token punctuation">,</span> <span class="token string">&quot;ls&quot;</span><span class="token punctuation">,</span> <span class="token keyword keyword-const">const</span> <span class="token keyword keyword-char">char</span> <span class="token operator">*</span>arg_1<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">,</span> <span class="token constant">NULL</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-int">int</span> <span class="token function">execl</span> <span class="token punctuation">(</span> <span class="token keyword keyword-const">const</span> <span class="token keyword keyword-char">char</span> <span class="token operator">*</span>path<span class="token punctuation">,</span> <span class="token string">&quot;ls&quot;</span><span class="token punctuation">,</span> <span class="token keyword keyword-const">const</span> <span class="token keyword keyword-char">char</span> <span class="token operator">*</span>arg_1<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">,</span> <span class="token constant">NULL</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
 </pre><h2 class="mume-header" id="file-in-output">File In-/Output</h2>
 
-<pre data-role="codeBlock" data-info="c" class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;sys/types.h&gt;</span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;sys/stat.h&gt;</span></span>
+<pre data-role="codeBlock" data-info="c" class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;sys/types.h&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;sys/stat.h&gt;</span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;fcntl.h&gt;</span></span>
 
-<span class="token keyword keyword-int">int</span> <span class="token function">create</span><span class="token punctuation">(</span> <span class="token keyword keyword-char">char</span> <span class="token operator">*</span>filename<span class="token punctuation">,</span> <span class="token class-name">mode_t</span> mode <span class="token punctuation">)</span>
-<span class="token keyword keyword-int">int</span> <span class="token function">open</span>  <span class="token punctuation">(</span> <span class="token keyword keyword-const">const</span> <span class="token keyword keyword-char">char</span><span class="token operator">*</span> path<span class="token punctuation">,</span> <span class="token keyword keyword-int">int</span> flags <span class="token punctuation">[</span> <span class="token keyword keyword-int">int</span> mode <span class="token punctuation">]</span> <span class="token punctuation">)</span><span class="token punctuation">;</span> 
-<span class="token keyword keyword-int">int</span> <span class="token function">close</span> <span class="token punctuation">(</span> <span class="token keyword keyword-int">int</span> fd <span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token class-name">size_t</span> <span class="token function">read</span> <span class="token punctuation">(</span> <span class="token keyword keyword-int">int</span> fd<span class="token punctuation">,</span> <span class="token keyword keyword-void">void</span><span class="token operator">*</span> buf<span class="token punctuation">,</span> <span class="token class-name">size_t</span> buf_size <span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token class-name">size_t</span> <span class="token function">write</span><span class="token punctuation">(</span> <span class="token keyword keyword-int">int</span> fd<span class="token punctuation">,</span> <span class="token keyword keyword-void">void</span><span class="token operator">*</span> buf<span class="token punctuation">,</span> <span class="token class-name">size_t</span> buf_size <span class="token punctuation">)</span><span class="token punctuation">;</span>
-</pre><h4 class="mume-header" id="create">create()</h4>
+<span class="token keyword keyword-int">int</span>    <span class="token function">create</span> <span class="token punctuation">(</span> <span class="token keyword keyword-char">char</span> <span class="token operator">*</span>filename<span class="token punctuation">,</span> <span class="token class-name">mode_t</span> mode <span class="token punctuation">)</span>
+<span class="token keyword keyword-int">int</span>    <span class="token function">open</span>   <span class="token punctuation">(</span> <span class="token keyword keyword-const">const</span> <span class="token keyword keyword-char">char</span><span class="token operator">*</span> path<span class="token punctuation">,</span> <span class="token keyword keyword-int">int</span> flags <span class="token punctuation">[</span> <span class="token keyword keyword-int">int</span> mode <span class="token punctuation">]</span> <span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token keyword keyword-int">int</span>    <span class="token function">close</span>  <span class="token punctuation">(</span> <span class="token keyword keyword-int">int</span> fd <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">size_t</span> <span class="token function">read</span>   <span class="token punctuation">(</span> <span class="token keyword keyword-int">int</span> fd<span class="token punctuation">,</span> <span class="token keyword keyword-void">void</span><span class="token operator">*</span> buf<span class="token punctuation">,</span> <span class="token class-name">size_t</span> buf_size <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">size_t</span> <span class="token function">write</span>  <span class="token punctuation">(</span> <span class="token keyword keyword-int">int</span> fd<span class="token punctuation">,</span> <span class="token keyword keyword-void">void</span><span class="token operator">*</span> buf<span class="token punctuation">,</span> <span class="token class-name">size_t</span> buf_size <span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><h4 class="mume-header" id="create">create ()</h4>
 
 <ul>
 <li>create new and empty file</li>
 </ul>
-<pre data-role="codeBlock" data-info="c" class="language-c"><span class="token keyword keyword-int">int</span> <span class="token function">create</span><span class="token punctuation">(</span> <span class="token keyword keyword-char">char</span> <span class="token operator">*</span>filename<span class="token punctuation">,</span> <span class="token class-name">mode_t</span> mode <span class="token punctuation">)</span>
+<pre data-role="codeBlock" data-info="c" class="language-c"><span class="token keyword keyword-int">int</span> <span class="token function">create</span> <span class="token punctuation">(</span> <span class="token keyword keyword-char">char</span> <span class="token operator">*</span>filename<span class="token punctuation">,</span> <span class="token class-name">mode_t</span> mode <span class="token punctuation">)</span>
 </pre><ul>
 <li><code>filename</code> : name of the file which you want to create</li>
 <li><code>mode</code> : indicates permissions of new file</li>
@@ -527,12 +541,12 @@ pre[data-line] .line-highlight[data-end]:after {
 </tr>
 </tbody>
 </table>
-<h4 class="mume-header" id="open">open()</h4>
+<h4 class="mume-header" id="open">open ()</h4>
 
 <ul>
 <li>opens file for reading, writing or both</li>
 </ul>
-<pre data-role="codeBlock" data-info="c" class="language-c"><span class="token keyword keyword-int">int</span> <span class="token function">open</span><span class="token punctuation">(</span> <span class="token keyword keyword-const">const</span> <span class="token keyword keyword-char">char</span><span class="token operator">*</span> path<span class="token punctuation">,</span> <span class="token keyword keyword-int">int</span> flags <span class="token punctuation">[</span> <span class="token keyword keyword-int">int</span> mode <span class="token punctuation">]</span> <span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<pre data-role="codeBlock" data-info="c" class="language-c"><span class="token keyword keyword-int">int</span> <span class="token function">open</span> <span class="token punctuation">(</span> <span class="token keyword keyword-const">const</span> <span class="token keyword keyword-char">char</span><span class="token operator">*</span> path<span class="token punctuation">,</span> <span class="token keyword keyword-int">int</span> flags <span class="token punctuation">[</span> <span class="token keyword keyword-int">int</span> mode <span class="token punctuation">]</span> <span class="token punctuation">)</span><span class="token punctuation">;</span> 
 </pre><ul>
 <li><code>path</code> : path to file which you want to use</li>
 </ul>
@@ -584,12 +598,12 @@ pre[data-line] .line-highlight[data-end]:after {
 </tr>
 </tbody>
 </table>
-<h4 class="mume-header" id="close">close()</h4>
+<h4 class="mume-header" id="close">close ()</h4>
 
 <ul>
 <li>close the file which the file descriptor (<code>fd</code>) points to</li>
 </ul>
-<pre data-role="codeBlock" data-info="c" class="language-c"><span class="token keyword keyword-int">int</span> <span class="token function">close</span><span class="token punctuation">(</span> <span class="token keyword keyword-int">int</span> fd <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre data-role="codeBlock" data-info="c" class="language-c"><span class="token keyword keyword-int">int</span> <span class="token function">close</span> <span class="token punctuation">(</span> <span class="token keyword keyword-int">int</span> fd <span class="token punctuation">)</span><span class="token punctuation">;</span>
 </pre><table>
 <thead>
 <tr>
@@ -608,9 +622,9 @@ pre[data-line] .line-highlight[data-end]:after {
 </tr>
 </tbody>
 </table>
-<h4 class="mume-header" id="read">read()</h4>
+<h4 class="mume-header" id="read">read ()</h4>
 
-<pre data-role="codeBlock" data-info="c" class="language-c"><span class="token class-name">size_t</span> <span class="token function">read</span><span class="token punctuation">(</span> <span class="token keyword keyword-int">int</span> fd<span class="token punctuation">,</span> <span class="token keyword keyword-void">void</span><span class="token operator">*</span> buf<span class="token punctuation">,</span> <span class="token class-name">size_t</span> buf_size <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre data-role="codeBlock" data-info="c" class="language-c"><span class="token class-name">size_t</span> <span class="token function">read</span> <span class="token punctuation">(</span> <span class="token keyword keyword-int">int</span> fd<span class="token punctuation">,</span> <span class="token keyword keyword-void">void</span><span class="token operator">*</span> buf<span class="token punctuation">,</span> <span class="token class-name">size_t</span> buf_size <span class="token punctuation">)</span><span class="token punctuation">;</span>
 </pre><ul>
 <li><code>fd</code> : file descriptor</li>
 <li><code>buf</code> : buffer to read data from</li>
@@ -638,9 +652,9 @@ pre[data-line] .line-highlight[data-end]:after {
 </tr>
 </tbody>
 </table>
-<h4 class="mume-header" id="write">write()</h4>
+<h4 class="mume-header" id="write">write ()</h4>
 
-<pre data-role="codeBlock" data-info="c" class="language-c"><span class="token class-name">size_t</span> <span class="token function">write</span><span class="token punctuation">(</span> <span class="token keyword keyword-int">int</span> fd<span class="token punctuation">,</span> <span class="token keyword keyword-void">void</span><span class="token operator">*</span> buf<span class="token punctuation">,</span> <span class="token class-name">size_t</span> buf_size <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre data-role="codeBlock" data-info="c" class="language-c"><span class="token class-name">size_t</span> <span class="token function">write</span> <span class="token punctuation">(</span> <span class="token keyword keyword-int">int</span> fd<span class="token punctuation">,</span> <span class="token keyword keyword-void">void</span><span class="token operator">*</span> buf<span class="token punctuation">,</span> <span class="token class-name">size_t</span> buf_size <span class="token punctuation">)</span><span class="token punctuation">;</span>
 </pre><ul>
 <li><code>fd</code> : file descriptor</li>
 <li><code>buf</code> : buffer to write data to</li>
@@ -674,16 +688,16 @@ pre[data-line] .line-highlight[data-end]:after {
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;sys/ipc.h&gt;</span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;sys/msg.h&gt;</span></span>
 
-<span class="token keyword keyword-int">int</span> <span class="token function">msgget</span><span class="token punctuation">(</span> <span class="token class-name">key_t</span> key<span class="token punctuation">,</span> <span class="token keyword keyword-int">int</span> msgflg <span class="token punctuation">)</span>
-<span class="token keyword keyword-int">int</span> <span class="token function">msgsnd</span><span class="token punctuation">(</span> <span class="token keyword keyword-int">int</span> msgid<span class="token punctuation">,</span> <span class="token keyword keyword-const">const</span> <span class="token keyword keyword-void">void</span> <span class="token operator">*</span>msgp<span class="token punctuation">,</span> <span class="token class-name">size_t</span> msgsz<span class="token punctuation">,</span> <span class="token keyword keyword-int">int</span> msgflg <span class="token punctuation">)</span>
-<span class="token keyword keyword-int">int</span> <span class="token function">msgrcv</span><span class="token punctuation">(</span> <span class="token keyword keyword-int">int</span> msgid<span class="token punctuation">,</span> <span class="token keyword keyword-const">const</span> <span class="token keyword keyword-void">void</span> <span class="token operator">*</span>msgp<span class="token punctuation">,</span> <span class="token class-name">size_t</span> msgsz<span class="token punctuation">,</span> <span class="token keyword keyword-long">long</span> msgtype<span class="token punctuation">,</span> <span class="token keyword keyword-int">int</span> msgflg <span class="token punctuation">)</span>
-<span class="token keyword keyword-int">int</span> <span class="token function">msgctl</span><span class="token punctuation">(</span> <span class="token keyword keyword-int">int</span> msgid<span class="token punctuation">,</span> <span class="token keyword keyword-int">int</span> cmd<span class="token punctuation">,</span> <span class="token keyword keyword-struct">struct</span> <span class="token class-name">msqid_ds</span> <span class="token operator">*</span>buf <span class="token punctuation">)</span>
-</pre><h4 class="mume-header" id="msgget">msgget()</h4>
+<span class="token keyword keyword-int">int</span> <span class="token function">msgget</span> <span class="token punctuation">(</span> <span class="token class-name">key_t</span> key<span class="token punctuation">,</span> <span class="token keyword keyword-int">int</span> msgflg <span class="token punctuation">)</span>
+<span class="token keyword keyword-int">int</span> <span class="token function">msgsnd</span> <span class="token punctuation">(</span> <span class="token keyword keyword-int">int</span> msgid<span class="token punctuation">,</span> <span class="token keyword keyword-const">const</span> <span class="token keyword keyword-void">void</span> <span class="token operator">*</span>msgp<span class="token punctuation">,</span> <span class="token class-name">size_t</span> msgsz<span class="token punctuation">,</span> <span class="token keyword keyword-int">int</span> msgflg <span class="token punctuation">)</span>
+<span class="token keyword keyword-int">int</span> <span class="token function">msgrcv</span> <span class="token punctuation">(</span> <span class="token keyword keyword-int">int</span> msgid<span class="token punctuation">,</span> <span class="token keyword keyword-const">const</span> <span class="token keyword keyword-void">void</span> <span class="token operator">*</span>msgp<span class="token punctuation">,</span> <span class="token class-name">size_t</span> msgsz<span class="token punctuation">,</span> <span class="token keyword keyword-long">long</span> msgtype<span class="token punctuation">,</span> <span class="token keyword keyword-int">int</span> msgflg <span class="token punctuation">)</span>
+<span class="token keyword keyword-int">int</span> <span class="token function">msgctl</span> <span class="token punctuation">(</span> <span class="token keyword keyword-int">int</span> msgid<span class="token punctuation">,</span> <span class="token keyword keyword-int">int</span> cmd<span class="token punctuation">,</span> <span class="token keyword keyword-struct">struct</span> <span class="token class-name">msqid_ds</span> <span class="token operator">*</span>buf <span class="token punctuation">)</span>
+</pre><h4 class="mume-header" id="msgget">msgget ()</h4>
 
 <ul>
 <li>creates or allocates a System V message queue</li>
 </ul>
-<pre data-role="codeBlock" data-info="c" class="language-c"><span class="token keyword keyword-int">int</span> <span class="token function">msgget</span><span class="token punctuation">(</span> <span class="token class-name">key_t</span> key<span class="token punctuation">,</span> <span class="token keyword keyword-int">int</span> msgflg <span class="token punctuation">)</span>
+<pre data-role="codeBlock" data-info="c" class="language-c"><span class="token keyword keyword-int">int</span> <span class="token function">msgget</span> <span class="token punctuation">(</span> <span class="token class-name">key_t</span> key<span class="token punctuation">,</span> <span class="token keyword keyword-int">int</span> msgflg <span class="token punctuation">)</span>
 </pre><ul>
 <li><code>key</code> : recognizes the message queue / can be an arbitrary value or derivated from <code>ftok()</code></li>
 <li><code>msgflg</code> : specifies required message queue flag/s</li>
@@ -715,12 +729,18 @@ pre[data-line] .line-highlight[data-end]:after {
 </thead>
 <tbody></tbody>
 </table>
-<h4 class="mume-header" id="msgsnd">msgsnd()</h4>
+<p><strong>ftock ()</strong></p>
+<pre data-role="codeBlock" data-info="c" class="language-c"><span class="token class-name">key_t</span> <span class="token function">ftok</span> <span class="token punctuation">(</span><span class="token keyword keyword-const">const</span> <span class="token keyword keyword-char">char</span> <span class="token operator">*</span>pathname<span class="token punctuation">,</span> <span class="token keyword keyword-int">int</span> proj_id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><ul>
+<li><code>*pathname</code> : refers to an existing, accessible file</li>
+<li><code>proj_id</code> : least significant 8 Bit</li>
+</ul>
+<h4 class="mume-header" id="msgsnd">msgsnd ()</h4>
 
 <ul>
 <li>sends/appends a message into the message queue</li>
 </ul>
-<pre data-role="codeBlock" data-info="c" class="language-c"><span class="token keyword keyword-int">int</span> <span class="token function">msgsnd</span><span class="token punctuation">(</span> <span class="token keyword keyword-int">int</span> msgid<span class="token punctuation">,</span> <span class="token keyword keyword-const">const</span> <span class="token keyword keyword-void">void</span> <span class="token operator">*</span>msgp<span class="token punctuation">,</span> <span class="token class-name">size_t</span> msgsz<span class="token punctuation">,</span> <span class="token keyword keyword-int">int</span> msgflg <span class="token punctuation">)</span>
+<pre data-role="codeBlock" data-info="c" class="language-c"><span class="token keyword keyword-int">int</span> <span class="token function">msgsnd</span> <span class="token punctuation">(</span> <span class="token keyword keyword-int">int</span> msgid<span class="token punctuation">,</span> <span class="token keyword keyword-const">const</span> <span class="token keyword keyword-void">void</span> <span class="token operator">*</span>msgp<span class="token punctuation">,</span> <span class="token class-name">size_t</span> msgsz<span class="token punctuation">,</span> <span class="token keyword keyword-int">int</span> msgflg <span class="token punctuation">)</span>
 </pre><ul>
 <li><code>msgid</code> : message queue identifier (return value of <code>msgget()</code>)</li>
 <li><code>*msgp</code> : pointer to the message sent to the caller</li>
@@ -745,12 +765,12 @@ pre[data-line] .line-highlight[data-end]:after {
 </tr>
 </tbody>
 </table>
-<h4 class="mume-header" id="msgrcv">msgrcv()</h4>
+<h4 class="mume-header" id="msgrcv">msgrcv ()</h4>
 
 <ul>
 <li>retrieves message from the message queue</li>
 </ul>
-<pre data-role="codeBlock" data-info="c" class="language-c"><span class="token keyword keyword-int">int</span> <span class="token function">msgrcv</span><span class="token punctuation">(</span> <span class="token keyword keyword-int">int</span> msgid<span class="token punctuation">,</span> <span class="token keyword keyword-const">const</span> <span class="token keyword keyword-void">void</span> <span class="token operator">*</span>msgp<span class="token punctuation">,</span> <span class="token class-name">size_t</span> msgsz<span class="token punctuation">,</span> <span class="token keyword keyword-long">long</span> msgtype<span class="token punctuation">,</span> <span class="token keyword keyword-int">int</span> msgflg <span class="token punctuation">)</span>
+<pre data-role="codeBlock" data-info="c" class="language-c"><span class="token keyword keyword-int">int</span> <span class="token function">msgrcv</span> <span class="token punctuation">(</span> <span class="token keyword keyword-int">int</span> msgid<span class="token punctuation">,</span> <span class="token keyword keyword-const">const</span> <span class="token keyword keyword-void">void</span> <span class="token operator">*</span>msgp<span class="token punctuation">,</span> <span class="token class-name">size_t</span> msgsz<span class="token punctuation">,</span> <span class="token keyword keyword-long">long</span> msgtype<span class="token punctuation">,</span> <span class="token keyword keyword-int">int</span> msgflg <span class="token punctuation">)</span>
 </pre><ul>
 <li><code>msgid</code> : message queue identifier (return value of <code>msgget()</code>)</li>
 <li><code>*msgp</code> : pointer to the message recieved from the caller</li>
@@ -798,12 +818,12 @@ pre[data-line] .line-highlight[data-end]:after {
 </tr>
 </tbody>
 </table>
-<h4 class="mume-header" id="msgctl">msgctl()</h4>
+<h4 class="mume-header" id="msgctl">msgctl ()</h4>
 
 <ul>
 <li>performs control operations of the message queue</li>
 </ul>
-<pre data-role="codeBlock" data-info="c" class="language-c"><span class="token keyword keyword-int">int</span> <span class="token function">msgctl</span><span class="token punctuation">(</span> <span class="token keyword keyword-int">int</span> msgid<span class="token punctuation">,</span> <span class="token keyword keyword-int">int</span> cmd<span class="token punctuation">,</span> <span class="token keyword keyword-struct">struct</span> <span class="token class-name">msqid_ds</span> <span class="token operator">*</span>buf <span class="token punctuation">)</span>
+<pre data-role="codeBlock" data-info="c" class="language-c"><span class="token keyword keyword-int">int</span> <span class="token function">msgctl</span> <span class="token punctuation">(</span> <span class="token keyword keyword-int">int</span> msgid<span class="token punctuation">,</span> <span class="token keyword keyword-int">int</span> cmd<span class="token punctuation">,</span> <span class="token keyword keyword-struct">struct</span> <span class="token class-name">msqid_ds</span> <span class="token operator">*</span>buf <span class="token punctuation">)</span>
 </pre><ul>
 <li><code>msgid</code> : message queue identifier (return value of <code>msgget()</code>)</li>
 <li><code>cmd</code> : command to perform the required control operation on the message queue</li>
@@ -861,7 +881,44 @@ pre[data-line] .line-highlight[data-end]:after {
 </tr>
 </tbody>
 </table>
+<h2 class="mume-header" id="posix">POSIX</h2>
 
+<pre data-role="codeBlock" data-info="c" class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;pthread.h&gt;</span></span>
+
+<span class="token keyword keyword-int">int</span>       <span class="token function">pthread_create</span> <span class="token punctuation">(</span> <span class="token class-name">pthread_t</span> <span class="token operator">*</span>thread<span class="token punctuation">,</span> <span class="token keyword keyword-const">const</span> <span class="token class-name">pthread_attr_t</span> <span class="token operator">*</span>attr<span class="token punctuation">,</span> <span class="token keyword keyword-void">void</span> <span class="token operator">*</span><span class="token punctuation">(</span><span class="token operator">*</span>start_routine<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token keyword keyword-void">void</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword keyword-void">void</span> <span class="token operator">*</span>arg <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-void">void</span>      <span class="token function">pthread_exit</span>   <span class="token punctuation">(</span> <span class="token keyword keyword-void">void</span> <span class="token operator">*</span>value_ptr <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">pthread_t</span> <span class="token function">pthread_self</span>   <span class="token punctuation">(</span> <span class="token keyword keyword-void">void</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-int">int</span>       <span class="token function">pthread_equal</span>  <span class="token punctuation">(</span> <span class="token class-name">pthread_t</span> t1<span class="token punctuation">,</span> <span class="token class-name">pthread_t</span> t2 <span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><h3 class="mume-header" id="pthread_create">pthread_create ( )</h3>
+
+<ul>
+<li>Starts a given function (<code>start_routine</code>) as a thread</li>
+</ul>
+<pre data-role="codeBlock" data-info="c" class="language-c"><span class="token keyword keyword-int">int</span> <span class="token function">pthread_create</span> <span class="token punctuation">(</span> <span class="token class-name">pthread_t</span> <span class="token operator">*</span>thread<span class="token punctuation">,</span> <span class="token keyword keyword-const">const</span> <span class="token class-name">pthread_attr_t</span> <span class="token operator">*</span>attr<span class="token punctuation">,</span> <span class="token keyword keyword-void">void</span> <span class="token operator">*</span><span class="token punctuation">(</span><span class="token operator">*</span>start_routine<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token keyword keyword-void">void</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword keyword-void">void</span> <span class="token operator">*</span>arg <span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><ul>
+<li><code>*thread</code>:</li>
+<li><code>*attr</code>: Defaul value is NULL</li>
+<li><code>*start_routine</code>: pointer to a function that shall be started as a thread</li>
+<li><code>*arg</code>:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Return</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">&gt; 0</td>
+<td style="text-align:left">Error</td>
+</tr>
+</tbody>
+</table>
+<h3 class="mume-header" id="pthread_exit">pthread_exit ( )</h3>
+
+<pre data-role="codeBlock" data-info="c" class="language-c"><span class="token keyword keyword-void">void</span> <span class="token function">pthread_exit</span> <span class="token punctuation">(</span><span class="token keyword keyword-void">void</span> <span class="token operator">*</span>value_ptr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre>
       </div>
       
       
